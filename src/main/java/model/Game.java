@@ -16,7 +16,7 @@ public class Game {
 
     private Player[] setPlayers(Board board) {
         Player[] players = new Player[AMOUNT_OF_PLAYERS];
-        for (int i = 0; i < this.players.length; i++) {
+        for (int i = 0; i < players.length; i++) {
             players[i] = new Player(board);
         }
         return players;
