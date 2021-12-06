@@ -12,4 +12,6 @@ module itvitae.strategogui {
 
     opens itvitae.strategogui to javafx.fxml;
     exports itvitae.strategogui;
+    exports controller;
+    opens controller to javafx.fxml;
 }
