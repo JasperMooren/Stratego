@@ -2,15 +2,12 @@ package model.pieces;
 
 import model.Player;
 
-public final class Bomb extends Piece {
+public final class Major extends Piece {
 
     // Constants
     public static final int AMOUNT = 6;
 
-    // Instance Variables
-
-    // Constructor
-    public Bomb(Player player) {
+    public Major(Player player) {
         super(player);
     }
 
