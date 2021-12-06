@@ -21,7 +21,6 @@ public class Player {
     private Piece[] buildPieces() {
         // TODO: implement
         return null;
-        // this is a test
     }
 
 

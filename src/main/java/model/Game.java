@@ -20,7 +20,6 @@ public class Game {
             players[i] = new Player(board);
         }
         return players;
-        // this is a test
     }
 
 }
