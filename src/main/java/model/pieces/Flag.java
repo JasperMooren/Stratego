@@ -5,8 +5,12 @@ import model.Player;
 public final class Flag extends Piece {
 
     // Constants
-    public static final int AMOUNT = 6;
+    public static final int AMOUNT = 1;
 
+    // Instance Variables
+    // protected Player player; -> protected variable from parent
+
+    // Constructor
     public Flag(Player player) {
         super(player);
     }

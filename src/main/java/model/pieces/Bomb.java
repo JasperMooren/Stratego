@@ -8,6 +8,7 @@ public final class Bomb extends Piece {
     public static final int AMOUNT = 6;
 
     // Instance Variables
+    // protected Player player; -> protected variable from parent
 
     // Constructor
     public Bomb(Player player) {
