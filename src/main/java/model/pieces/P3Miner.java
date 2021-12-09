@@ -2,7 +2,7 @@ package model.pieces;
 
 import model.Player;
 
-public final class Miner extends Piece {
+public final class P3Miner extends AbstractPiece {
 
     // Constants
     public static final int AMOUNT = 5;
@@ -11,7 +11,7 @@ public final class Miner extends Piece {
     // protected Player player; -> protected variable from parent
 
     // Constructor
-    public Miner(Player player) {
+    public P3Miner(Player player) {
         super(player);
     }
 

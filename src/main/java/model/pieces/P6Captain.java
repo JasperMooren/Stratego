@@ -2,16 +2,16 @@ package model.pieces;
 
 import model.Player;
 
-public final class Major extends Piece {
+public final class P6Captain extends AbstractPiece {
 
     // Constants
-    public static final int AMOUNT = 3;
+    public static final int AMOUNT = 4;
 
     // Instance Variables
     // protected Player player; -> protected variable from parent
 
     // Constructor
-    public Major(Player player) {
+    public P6Captain(Player player) {
         super(player);
     }
 

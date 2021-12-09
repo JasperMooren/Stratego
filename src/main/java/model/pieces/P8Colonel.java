@@ -2,16 +2,16 @@ package model.pieces;
 
 import model.Player;
 
-public final class Spy extends Piece {
+public final class P8Colonel extends AbstractPiece {
 
     // Constants
-    public static final int AMOUNT = 1;
+    public static final int AMOUNT = 2;
 
     // Instance Variables
     // protected Player player; -> protected variable from parent
 
     // Constructor
-    public Spy(Player player) {
+    public P8Colonel(Player player) {
         super(player);
     }
 

@@ -17,10 +17,9 @@ public class Game {
     private Player[] setPlayers(Board board) {
         Player[] players = new Player[AMOUNT_OF_PLAYERS];
         for (int i = 0; i < players.length; i++) {
-            players[i] = new Player(board);
+            players[i] = new Player(board, i == 0);
         }
         return players;
-        // this is a test
     }
 
 }

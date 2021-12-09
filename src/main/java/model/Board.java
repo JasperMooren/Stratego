@@ -1,5 +1,7 @@
 package model;
 
+import model.pieces.AbstractPiece;
+
 public class Board {
 
     // Constants
@@ -22,5 +24,9 @@ public class Board {
             }
         }
         return squares;
+    }
+
+    public void setPiece(int x, int y, AbstractPiece abstractPiece) {
+        squares[y][x].setPiece(abstractPiece);
     }
 }
