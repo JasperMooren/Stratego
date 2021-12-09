@@ -13,4 +13,8 @@ public class ViewController {
         this.fxController = fxController;
         modelController = new ModelController(this);
     }
+
+    public void buttonClicked(int x, int y) {
+        System.out.println("("+x+","+y+")");
+    }
 }
