@@ -2,7 +2,7 @@ package model.pieces;
 
 import model.Player;
 
-public final class PFlag extends AbstractPiece {
+public final class PFlag extends Piece {
 
     // Constants
     public static final int AMOUNT = 1;

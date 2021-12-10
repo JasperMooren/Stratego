@@ -2,7 +2,7 @@ package model.pieces;
 
 import model.Player;
 
-public final class P4Sergeant extends AbstractPiece {
+public final class P4Sergeant extends Piece {
 
     // Constants
     public static final int AMOUNT = 4;

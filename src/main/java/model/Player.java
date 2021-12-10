@@ -7,15 +7,41 @@ import java.util.ArrayList;
 public class Player {
 
     // Instance Variables
-    private final Board board;
-    private final ArrayList<AbstractPiece> pieces;
     private final boolean isFirst;
+    private final Board board;
+    private final ArrayList<Piece> pieces;
 
     // Constructor
     public Player(Board board, boolean isFirst) {
-        pieces = buildPieces();
-        this.board = board;
         this.isFirst = isFirst;
+        this.board = board;
+        pieces = buildPieces();
+    }
+
+    // Test Constructor
+    @Deprecated
+    public Player(Board board, boolean isFirst, BasicBoardSetup basicBoardSetup) {
+        this.isFirst = isFirst;
+        this.board = board;
+        pieces = buildPieces();
+        setBoard(basicBoardSetup);
+    }
+
+    // test method
+    @Deprecated
+    private void printPieces() {
+        String playerName;
+        if (isFirst) {
+            playerName = "Player 1";
+        }
+        else {
+            playerName = "Player 2";
+        }
+        System.out.println(playerName + " pieces:");
+        for (Piece p :
+                pieces) {
+            System.out.println(p.getClass().getName());
+        }
     }
 
     /**
@@ -23,19 +49,19 @@ public class Player {
      *
      * @return the starting pieces that each player has.
      */
-    private ArrayList<AbstractPiece> buildPieces() {
+    private ArrayList<Piece> buildPieces() {
         // create an ArrayList of the pieces
-        ArrayList<AbstractPiece> abstractPieces = new ArrayList<>();
-        for (Class<? extends AbstractPiece> cls : AbstractPiece.PIECE_SUBCLASS_LIST) {
-            for (int i = 0; i < AbstractPiece.getAmount(cls); i++) {
+        ArrayList<Piece> pieces = new ArrayList<>();
+        for (Class<? extends Piece> cls : Piece.PIECE_SUBCLASS_LIST) {
+            for (int i = 0; i < Piece.getAmount(cls); i++) {
                 try {
-                    abstractPieces.add(cls.getDeclaredConstructor(Player.class).newInstance(this));
+                    pieces.add(cls.getDeclaredConstructor(Player.class).newInstance(this));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
-        return abstractPieces;
+        return pieces;
     }
 
     /**
@@ -45,7 +71,7 @@ public class Player {
      * @return true if the board is set, else false.
      */
     public boolean setBoard(BasicBoardSetup basicBoardSetup) {
-        Class<? extends AbstractPiece>[][] setupPieces = null;
+        Class<? extends Piece>[][] setupPieces;
         switch (basicBoardSetup) {
             case DUTCH_OPENING -> setupPieces = getDutchOpening();
             case DE_BOER_OFFENSE -> setupPieces = getDeBoerOffense();
@@ -53,13 +79,26 @@ public class Player {
             case FLAG_FLANK_ASSAULT -> setupPieces = getFlagFlankAssault();
             case SCOTTISH_DEFENSE -> setupPieces = getScottishDefense();
             case MINE_FIELD_DEFENSE -> setupPieces = getMineFieldDefense();
+            // TODO: remove test code
+            case TEST_A -> setupPieces = getTestA();
+            case TEST_B -> setupPieces = getTestB();
+            // end test code
+
+            // code should never run, but if something funny happens that a BasicBoardSetup is called that doesn't exist
+            // (or a null input), then at least we get a useful error.
             default -> throw new IllegalStateException("Unexpected value: " + basicBoardSetup);
         }
-        if (setupPieces.length != Board.Y_LENGTH) {
+        // check if the setup is smaller than half of the board.
+        if (!(setupPieces.length < (Board.Y_LENGTH / 2))) {
+            System.out.println("Y_LENGTH incorrect");
             return false;
         }
-        if (setupPieces[0].length != Board.X_LENGTH) {
-            return false;
+        // check if all x values are the width of the board.
+        for (int y = 0; y < setupPieces.length; y++) {
+            if (setupPieces[y].length != Board.X_LENGTH) {
+                System.out.println("X_LENGTH incorrect");
+                return false;
+            }
         }
         for (int y = 0; y < setupPieces.length; y++) {
             for (int x = 0; x < setupPieces[y].length; x++) {
@@ -78,19 +117,20 @@ public class Player {
      * @param maxY the y position at which the error occurred
      * @param setupPieces the format from which the player tried to add pieces.
      */
-    private void reset(int maxX, int maxY, Class<? extends AbstractPiece>[][] setupPieces) {
+    private void reset(int maxX, int maxY, Class<? extends Piece>[][] setupPieces) {
+        System.out.println("Reset method called: maxX: " + maxX + ", maxY: " + maxY);
         for (int y = 0; y < setupPieces.length; y++) {
             for (int x = 0; x < setupPieces[y].length; x++) {
                 if (x == maxX && y == maxY) {
                     return;
                 }
-                placePiece(x, y, (AbstractPiece) null);
-                // try always works, because it asks for a constructor of a subclass of AbstractPiece,
+                placePiece(x, y, (Piece) null);
+                // try always works, because it asks for a constructor of a subclass of Piece,
                 // which has to be implemented
                 try {
                     // Reflectively constructs a piece based on the subclass given in the array.
-                    AbstractPiece piece =
-                            setupPieces[x][y].getDeclaredConstructor(Player.class).newInstance(this);
+                    Piece piece =
+                            setupPieces[y][x].getDeclaredConstructor(Player.class).newInstance(this);
                     pieces.add(piece);
                 } catch (Exception e) { // this code should never run -> getDeclaredConstructor() demands it.
                     e.printStackTrace();
@@ -106,9 +146,9 @@ public class Player {
      * @param playerY the y coordinate to place the piece from the perspective of the player
      * @param piece   the piece to place.
      */
-    public void placePiece(int playerX, int playerY, AbstractPiece piece) {
-        int boardX = getFlippedX(playerX);
-        int boardY = getBoardY(playerY);
+    public void placePiece(int playerX, int playerY, Piece piece) {
+        int boardX = getFlipped(playerX, true);
+        int boardY = getFlipped(playerY, false);
         board.setPiece(boardX, boardY, piece);
     }
 
@@ -121,14 +161,15 @@ public class Player {
      * @param pieceClass the type of piece to place.
      * @return true if the piece is placed, otherwise false (no piece of required type exists).
      */
-    public boolean placePiece(int playerX, int playerY, Class<? extends AbstractPiece> pieceClass) {
-        AbstractPiece abstractPiece = takePiece(pieceClass);
-        if (abstractPiece == null) {
+    public boolean placePiece(int playerX, int playerY, Class<? extends Piece> pieceClass) {
+        Piece piece = takePiece(pieceClass);
+        if (piece == null) {
+            System.out.println(pieceClass.getName() + " not found in player pieces list");
             return false;
         }
-        int boardX = getFlippedX(playerX);
-        int boardY = getBoardY(playerY);
-        board.setPiece(boardX, boardY, abstractPiece);
+        int boardX = getFlipped(playerX, true);
+        int boardY = getFlipped(playerY, false);
+        board.setPiece(boardX, boardY, piece);
         return true;
     }
 
@@ -138,51 +179,46 @@ public class Player {
      * @param pieceClass a subclass (such as Scout.class) of Piece
      * @return a Piece object, or null of no instance of the given class exists in the array.
      */
-    private AbstractPiece takePiece(Class<? extends AbstractPiece> pieceClass) {
-        // create the variable
-        AbstractPiece abstractPiece = null;
+    private Piece takePiece(Class<? extends Piece> pieceClass) {
         // loop through the ArrayList
         for (int i = 0; i < pieces.size(); i++) {
             // check if the piece is of the type given.
             if (pieceClass.isInstance(pieces.get(i))) {
                 // remove it from the player's stock.
-                abstractPiece = pieces.remove(i);
+                return pieces.remove(i);
             }
         }
         // return the piece.
-        return abstractPiece;
+        return null;
     }
 
     /**
      * If the player is the top player, the board positions should flip.
-     * @param x the original cooridinate
-     * @return the flipped coordinate (from board x to player x or from player x to board x)
+     * @param coordinate the original coordinate
+     * @param isX if asking for the x coordinate, is true, for y is false.
+     * @return the flipped coordinate (from board coordinate to player coordinate or from player coordinate to board coordinate)
      */
-    private int getFlippedX(int x) {
+    private int getFlipped(int coordinate, boolean isX) {
         if (isFirst) {
-            return x;
+            return coordinate;
+        }
+        int boardLength;
+        if (isX) {
+            boardLength = Board.X_LENGTH;
+        }
+        else {
+            boardLength = Board.Y_LENGTH;
         }
         // -1 because a board length of 10 goes from 0 to 9, so position 2 flips to 7, not 8.
-        int flippedX = Board.X_LENGTH - x - 1;
-        return flippedX;
-    }
-
-
-    private int getBoardY(int playerY) {
-        if (isFirst) {
-            return playerY;
-        }
-        // -1 because a board length of 10 goes from 0 to 9, so position 2 flips to 7, not 8.
-        int boardY = Board.Y_LENGTH - playerY - 1;
-        ;
-        return boardY;
+        int flipped = boardLength - coordinate - 1;
+        return flipped;
     }
 
     // Standard Openings with hard coded setups:
-    private static Class<? extends AbstractPiece>[][] getDutchOpening() {
+    private static Class<? extends Piece>[][] getDutchOpening() {
         // all classes are hardcoded subclasses of Piece, therefore this is always allowed.
         @SuppressWarnings("unchecked")
-        Class<? extends AbstractPiece>[][] setup = new Class[][]{
+        Class<? extends Piece>[][] setup = new Class[][]{
                 {P2Scout.class, P3Miner.class, PBomb.class, P2Scout.class, P3Miner.class,
                         PBomb.class, PFlag.class, PBomb.class, P3Miner.class, P3Miner.class},
                 {P4Sergeant.class, PBomb.class, P4Sergeant.class, P7Major.class, P8Colonel.class,
@@ -195,10 +231,11 @@ public class Player {
         return setup;
     }
 
-    private static Class<? extends AbstractPiece>[][] getDeBoerOffense() {
-        // all classes are hardcoded subclasses of Piece, therefore this is always allowed.
+    private static Class<? extends Piece>[][] getDeBoerOffense() {
+        // all classes are hardcoded subclasses of Piece, therefore this is always allowed
+        // (warning indicates that the class may not extend Piece, but all of them do).
         @SuppressWarnings("unchecked")
-        Class<? extends AbstractPiece>[][] setup = new Class[][]{
+        Class<? extends Piece>[][] setup = new Class[][]{
                 {P7Major.class, P3Miner.class, P3Miner.class, P3Miner.class, P4Sergeant.class,
                         PBomb.class, PFlag.class, PBomb.class, PBomb.class, P3Miner.class},
                 {P7Major.class, P2Scout.class, P7Major.class, P1Spy.class, P6Captain.class,
@@ -211,10 +248,11 @@ public class Player {
         return setup;
     }
 
-    private static Class<? extends AbstractPiece>[][] getShorelineGambit() {
+    private static Class<? extends Piece>[][] getShorelineGambit() {
         // all classes are hardcoded subclasses of Piece, therefore this is always allowed.
+        // (warning indicates that the class may not extend Piece, but all of them do).
         @SuppressWarnings("unchecked")
-        Class<? extends AbstractPiece>[][] setup = new Class[][]{
+        Class<? extends Piece>[][] setup = new Class[][]{
                 {P2Scout.class, P4Sergeant.class, P3Miner.class, P5Lieutenant.class, P2Scout.class,
                         P1Spy.class, P4Sergeant.class, PBomb.class, P5Lieutenant.class, P3Miner.class},
                 {P5Lieutenant.class, P4Sergeant.class, P6Captain.class, P6Captain.class, P3Miner.class,
@@ -227,10 +265,11 @@ public class Player {
         return setup;
     }
 
-    private static Class<? extends AbstractPiece>[][] getFlagFlankAssault() {
+    private static Class<? extends Piece>[][] getFlagFlankAssault() {
         // all classes are hardcoded subclasses of Piece, therefore this is always allowed.
+        // (warning indicates that the class may not extend Piece, but all of them do).
         @SuppressWarnings("unchecked")
-        Class<? extends AbstractPiece>[][] setup = new Class[][]{
+        Class<? extends Piece>[][] setup = new Class[][]{
                 {PFlag.class, PBomb.class, P7Major.class, P3Miner.class, P7Major.class,
                         P6Captain.class, PBomb.class, P3Miner.class, P2Scout.class, P5Lieutenant.class},
                 {PBomb.class, P3Miner.class, P1Spy.class, P7Major.class, P6Captain.class,
@@ -243,10 +282,11 @@ public class Player {
         return setup;
     }
 
-    private static Class<? extends AbstractPiece>[][] getScottishDefense() {
+    private static Class<? extends Piece>[][] getScottishDefense() {
         // all classes are hardcoded subclasses of Piece, therefore this is always allowed.
+        // (warning indicates that the class may not extend Piece, but all of them do).
         @SuppressWarnings("unchecked")
-        Class<? extends AbstractPiece>[][] setup = new Class[][]{
+        Class<? extends Piece>[][] setup = new Class[][]{
                 {PFlag.class, PBomb.class, P4Sergeant.class, PBomb.class, P6Captain.class,
                         P3Miner.class, P3Miner.class, P3Miner.class, P5Lieutenant.class, P7Major.class},
                 {PBomb.class, P4Sergeant.class, PBomb.class, P2Scout.class, P2Scout.class,
@@ -259,10 +299,11 @@ public class Player {
         return setup;
     }
 
-    private static Class<? extends AbstractPiece>[][] getMineFieldDefense() {
+    private static Class<? extends Piece>[][] getMineFieldDefense() {
         // all classes are hardcoded subclasses of Piece, therefore this is always allowed.
+        // (warning indicates that the class may not extend Piece, but all of them do).
         @SuppressWarnings("unchecked")
-        Class<? extends AbstractPiece>[][] setup = new Class[][]{
+        Class<? extends Piece>[][] setup = new Class[][]{
                 {PFlag.class, PBomb.class, P2Scout.class, P2Scout.class, P2Scout.class,
                         P2Scout.class, P2Scout.class, P2Scout.class, P3Miner.class, P4Sergeant.class},
                 {PBomb.class, P10Marshal.class, P5Lieutenant.class, P3Miner.class, P3Miner.class,
@@ -272,6 +313,42 @@ public class Player {
                 {P2Scout.class, P2Scout.class, P3Miner.class, P7Major.class, PBomb.class,
                         PBomb.class, P4Sergeant.class, P4Sergeant.class, PBomb.class, PBomb.class}
 
+        };
+        return setup;
+    }
+
+    // Some test setups, so we can change the setups for tests in a way we want later.
+
+    @Deprecated
+    private static Class<? extends Piece>[][] getTestA() {
+        // all classes are hardcoded subclasses of Piece, therefore this is always allowed.
+        @SuppressWarnings("unchecked")
+        Class<? extends Piece>[][] setup = new Class[][]{
+                {PFlag.class, PBomb.class, P4Sergeant.class, PBomb.class, P6Captain.class,
+                        P3Miner.class, P3Miner.class, P3Miner.class, P5Lieutenant.class, P7Major.class},
+                {PBomb.class, P4Sergeant.class, PBomb.class, P2Scout.class, P2Scout.class,
+                        P5Lieutenant.class, P4Sergeant.class, P2Scout.class, P6Captain.class, P6Captain.class},
+                {P4Sergeant.class, PBomb.class, P3Miner.class, P6Captain.class, P7Major.class,
+                        P10Marshal.class, P2Scout.class, P2Scout.class, P7Major.class, P2Scout.class},
+                {PBomb.class, P9General.class, P1Spy.class, P8Colonel.class, P2Scout.class,
+                        P5Lieutenant.class, P3Miner.class, P8Colonel.class, P2Scout.class, P5Lieutenant.class}
+        };
+        return setup;
+    }
+
+    @Deprecated
+    private static Class<? extends Piece>[][] getTestB() {
+        // all classes are hardcoded subclasses of Piece, therefore this is always allowed.
+        @SuppressWarnings("unchecked")
+        Class<? extends Piece>[][] setup = new Class[][]{
+                {PFlag.class, PBomb.class, P4Sergeant.class, PBomb.class, P3Miner.class,
+                        P6Captain.class, P3Miner.class, P3Miner.class, P5Lieutenant.class, P7Major.class},
+                {PBomb.class, P4Sergeant.class, PBomb.class, P2Scout.class, P2Scout.class,
+                        P5Lieutenant.class, P4Sergeant.class, P6Captain.class, P2Scout.class, P6Captain.class},
+                {P4Sergeant.class, PBomb.class, P3Miner.class, P6Captain.class, P7Major.class,
+                        P10Marshal.class, P2Scout.class, P2Scout.class, P7Major.class, P2Scout.class},
+                {PBomb.class, P9General.class, P1Spy.class, P8Colonel.class, P2Scout.class,
+                        P5Lieutenant.class, P3Miner.class, P8Colonel.class, P2Scout.class, P5Lieutenant.class}
         };
         return setup;
     }

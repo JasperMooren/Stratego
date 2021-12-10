@@ -1,22 +1,22 @@
 package model;
 
-import model.pieces.AbstractPiece;
+import model.pieces.Piece;
 
 public class Square {
 
-    private AbstractPiece abstractPiece;
+    private Piece piece;
 
     public Square() {
-        abstractPiece = null;
+        piece = null;
     }
 
     // Getters
-    public AbstractPiece getPiece() {
-        return abstractPiece;
+    public Piece getPiece() {
+        return piece;
     }
 
     // Setters
-    public void setPiece(AbstractPiece abstractPiece) {
-        this.abstractPiece = abstractPiece;
+    public void setPiece(Piece piece) {
+        this.piece = piece;
     }
 }

@@ -6,5 +6,7 @@ public enum BasicBoardSetup {
     SHORELINE_GAMBIT,
     FLAG_FLANK_ASSAULT,
     SCOTTISH_DEFENSE,
-    MINE_FIELD_DEFENSE;
+    MINE_FIELD_DEFENSE,
+    TEST_A,
+    TEST_B;
 }
