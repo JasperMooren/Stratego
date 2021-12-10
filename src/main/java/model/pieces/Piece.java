@@ -3,13 +3,13 @@ package model.pieces;
 import model.Player;
 
 public abstract sealed class Piece
-        permits Bomb, Captain, Colonel, Flag, General, Lieutenant, Major, Marshal, Miner, Scout, Sergeant, Spy {
+        permits PBomb, P6Captain, P8Colonel, PFlag, P9General, P5Lieutenant, P7Major, P10Marshal, P3Miner, P2Scout, P4Sergeant, P1Spy {
 
     /**
      * A list of all subclasses of Piece
      */
     @SuppressWarnings("unchecked") // All subclasses of Piece by definition extend Piece.
-    public static final Class<? extends Piece>[] PIECE_CLASS_LIST =
+    public static final Class<? extends Piece>[] PIECE_SUBCLASS_LIST =
             (Class<? extends Piece>[]) Piece.class.getPermittedSubclasses();
 
     // Instance Variable
@@ -47,7 +47,7 @@ public abstract sealed class Piece
 
     public static int getTotalAmount() {
         int total = 0;
-        for (Class<? extends Piece> cls : PIECE_CLASS_LIST) {
+        for (Class<? extends Piece> cls : PIECE_SUBCLASS_LIST) {
             total += getAmount(cls);
         }
         return total;

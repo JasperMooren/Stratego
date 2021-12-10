@@ -11,16 +11,25 @@ public class Game {
 
     public Game() {
         board = new Board();
-        players = setPlayers(board);
+        players = setTestPlayers(board);
+        board.printBoard();
     }
 
     private Player[] setPlayers(Board board) {
         Player[] players = new Player[AMOUNT_OF_PLAYERS];
         for (int i = 0; i < players.length; i++) {
-            players[i] = new Player(board);
+            players[i] = new Player(board, i == 0);
         }
         return players;
-        // this is a test
+    }
+
+    // TODO: remove test method
+    @Deprecated
+    private Player[] setTestPlayers(Board board) {
+        Player[] players = new Player[AMOUNT_OF_PLAYERS];
+        players[0] = new Player(board, true, BasicBoardSetup.TEST_A);
+        players[1] = new Player(board, false, BasicBoardSetup.TEST_B);
+        return players;
     }
 
 }

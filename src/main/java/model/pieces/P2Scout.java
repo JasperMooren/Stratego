@@ -2,7 +2,7 @@ package model.pieces;
 
 import model.Player;
 
-public final class Scout extends Piece {
+public final class P2Scout extends Piece {
 
     // Constants
     public static final int AMOUNT = 8;
@@ -11,7 +11,7 @@ public final class Scout extends Piece {
     // protected Player player; -> protected variable from parent
 
     // Constructor
-    public Scout(Player player) {
+    public P2Scout(Player player) {
         super(player);
     }
 
