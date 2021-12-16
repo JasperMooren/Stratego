@@ -14,8 +14,7 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 800, 800);
         stage.setTitle("Stratego");
         stage.setScene(scene);
-        FXController fxController = fxmlLoader.getController();
-        fxController.initialise();
+        stage.setResizable(false);
         stage.show();
     }
 
