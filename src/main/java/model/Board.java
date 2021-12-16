@@ -29,12 +29,31 @@ public class Board {
         return squares;
     }
 
-    // Setters
+    /**
+     * Gets the flipped position on the board, so 1,2 results in 8,7 for a 10x10 board
+     *
+     * @param coordinate the original coordinate
+     * @param isX        if asking for the x coordinate, is true, for y is false.
+     * @return the flipped coordinate.
+     */
+    public static int getFlippedCoordinate(int coordinate, boolean isX) {
+        int boardLength;
+        if (isX) {
+            boardLength = Board.X_LENGTH;
+        } else {
+            boardLength = Board.Y_LENGTH;
+        }
+        // -1 because a board length of 10 goes from 0 to 9, so position 2 flips to 7, not 8.
+        int flipped = boardLength - coordinate - 1;
+        return flipped;
+    }
 
+    // Setters
     /**
      * Sets a piece at a specified coordinate on the board
-     * @param x the x coordinate of the board
-     * @param y the y coordinate of the board
+     *
+     * @param x     the x coordinate of the board
+     * @param y     the y coordinate of the board
      * @param piece the piece to be place, or null if the piece should be removed.
      *              -> use (Piece) null, otherwise Java doesn't understand the parameter.
      */
@@ -42,60 +61,69 @@ public class Board {
         squares[y][x].setPiece(piece);
     }
 
-    // test methods
+    public Board getFlippedBoard() {
+        Board flippedBoard = new Board();
+        for (int y = 0; y < squares.length; y++) {
+            for (int x = 0; x < squares[y].length; x++) {
+                flippedBoard.setPiece(getFlippedCoordinate(x, true), getFlippedCoordinate(y, false), squares[y][x].getPiece());
+            }
+        }
+        return flippedBoard;
+    }
 
+    // test methods
     @Deprecated
     public void printBoard() {
         String print = "";
         print += "+ 01 02 03 04 05 06 07 08 09 10\n";
         print += "J ";
         for (int x = 0; x < 10; x++) {
-            print += getSquareString(x,9) + " ";
+            print += getSquareString(x, 9) + " ";
         }
         print += "\n";
         print += "I ";
         for (int x = 0; x < 10; x++) {
-            print += getSquareString(x,8) + " ";
+            print += getSquareString(x, 8) + " ";
         }
         print += "\n";
         print += "H ";
         for (int x = 0; x < 10; x++) {
-            print += getSquareString(x,7) + " ";
+            print += getSquareString(x, 7) + " ";
         }
         print += "\n";
         print += "G ";
         for (int x = 0; x < 10; x++) {
-            print += getSquareString(x,6) + " ";
+            print += getSquareString(x, 6) + " ";
         }
         print += "\n";
         print += "F ";
         for (int x = 0; x < 10; x++) {
-            print += getSquareString(x,5) + " ";
+            print += getSquareString(x, 5) + " ";
         }
         print += "\n";
         print += "E ";
         for (int x = 0; x < 10; x++) {
-            print += getSquareString(x,4) + " ";
+            print += getSquareString(x, 4) + " ";
         }
         print += "\n";
         print += "D ";
         for (int x = 0; x < 10; x++) {
-            print += getSquareString(x,3) + " ";
+            print += getSquareString(x, 3) + " ";
         }
         print += "\n";
         print += "C ";
         for (int x = 0; x < 10; x++) {
-            print += getSquareString(x,2) + " ";
+            print += getSquareString(x, 2) + " ";
         }
         print += "\n";
         print += "B ";
         for (int x = 0; x < 10; x++) {
-            print += getSquareString(x,1) + " ";
+            print += getSquareString(x, 1) + " ";
         }
         print += "\n";
         print += "A ";
         for (int x = 0; x < 10; x++) {
-            print += getSquareString(x,0) + " ";
+            print += getSquareString(x, 0) + " ";
         }
         print += "\n";
         System.out.println(print);
@@ -107,23 +135,17 @@ public class Board {
         Piece p = squares[y][x].getPiece();
         if (p == null) {
             return "XX";
-        }
-        else if (p instanceof P1Spy) {
+        } else if (p instanceof P1Spy) {
             return "S1";
-        }
-        else if (p instanceof P2Scout) {
+        } else if (p instanceof P2Scout) {
             return "02";
-        }
-        else if (p instanceof P3Miner) {
+        } else if (p instanceof P3Miner) {
             return "03";
-        }
-        else if (p instanceof P4Sergeant) {
+        } else if (p instanceof P4Sergeant) {
             return "04";
-        }
-        else if (p instanceof P5Lieutenant) {
+        } else if (p instanceof P5Lieutenant) {
             return "05";
-        }
-        else if (p instanceof P6Captain) {
+        } else if (p instanceof P6Captain) {
             return "06";
         }
         if (p instanceof P7Major) {
@@ -145,5 +167,15 @@ public class Board {
             return "BB";
         }
         return null;
+    }
+
+    public Piece getPiece(int x, int y) {
+        if (x >= squares[0].length) {
+            return null;
+        }
+        if (y >= squares.length) {
+            return null;
+        }
+        return squares[y][x].getPiece();
     }
 }

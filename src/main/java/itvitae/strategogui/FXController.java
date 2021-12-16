@@ -354,4 +354,8 @@ public class FXController {
         if (x == 0 && y == 0) {return button00;}
         return null;
     }
+
+    public void setButtonText(String pieceName, int x, int y) {
+
+    }
 }
