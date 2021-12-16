@@ -146,6 +146,7 @@ public class FXController {
             }
         }
         gridPane.setBackground(BACKGROUND);
+        gridPane.setGridLinesVisible(false);
     }
 
 
