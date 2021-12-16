@@ -123,7 +123,7 @@ public class FXController {
     private static Background getBackground() {
         // get the absolute path to the background image
         String backgroundPath =
-                new File("src/main/resources/itvitae/strategogui/strategoTestPicture.jpg").toURI().toString();
+                new File("src/main/resources/images/Stratego_better 800x800.jpg").toURI().toString();
         BackgroundImage backgroundImage = new BackgroundImage(new Image(backgroundPath),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
