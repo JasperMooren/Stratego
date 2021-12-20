@@ -17,16 +17,19 @@ public class ViewController {
     }
 
     public void buttonClicked(int x, int y) {
-        System.out.println("("+x+","+y+")");
+        System.out.println("(" + x + "," + y + ")");
     }
 
     public void showBoard(Board board) {
         String pieceName;
         for (int y = 0; y < Board.Y_LENGTH; y++) {
             for (int x = 0; x < Board.X_LENGTH; x++) {
-                pieceName = pieceToString(board.getPiece(x,y));
+                pieceName = pieceToString(board.getPiece(x, y));
                 if (pieceName != null) {
                     fxController.setButtonText(pieceName, x, y);
+                } else {
+                    // test code, this shouldn't run -> piece is not one of the defined subclasses or null.
+                    System.out.println("ERROR: invalid piece!");
                 }
             }
         }
@@ -73,5 +76,9 @@ public class ViewController {
             return "B";
         }
         return null;
+    }
+
+    public void showBoard() {
+        modelController.showBoard();
     }
 }
