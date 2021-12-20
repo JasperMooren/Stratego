@@ -27,20 +27,20 @@ public class Board {
         return squares;
     }
     public void setTestPieces(Player player){
-        setPiece(3,2, new Bomb(player));
-        setPiece(2,3, new Bomb(player));
-        setPiece(4,3, new Bomb(player));
-        setPiece(3,3, new Flag(player));
-        setPiece(4,2, new Miner(player));
-        setPiece(5,3, new Sergeant(player));
-        setPiece(6,2, new Lieutenant(player));
-        setPiece(7,3, new Captain(player));
-        setPiece(8,2, new Major(player));
-        setPiece(9,3, new Colonel(player));
-        setPiece(8,1, new General(player));
-        setPiece(8,0, new Marshal(player));
-        setPiece(9,0, new Spy(player));
-        setPiece(3,1, new Scout(player));
+        setPiece(3,2, new PBomb(player));
+        setPiece(2,3, new PBomb(player));
+        setPiece(4,3, new PBomb(player));
+        setPiece(3,3, new PFlag(player));
+        setPiece(4,2, new P3Miner(player));
+        setPiece(5,3, new P4Sergeant(player));
+        setPiece(6,2, new P5Lieutenant(player));
+        setPiece(7,3, new P6Captain(player));
+        setPiece(8,2, new P7Major(player));
+        setPiece(9,3, new P8Colonel(player));
+        setPiece(8,1, new P9General(player));
+        setPiece(8,0, new P10Marshal(player));
+        setPiece(9,0, new P1Spy(player));
+        setPiece(3,1, new P2Scout(player));
     }
     public void setPiece(int x, int y, Piece piece){
         squares[y][x].setPiece(piece);

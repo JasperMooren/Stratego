@@ -2,16 +2,16 @@ package model.pieces;
 
 import model.Player;
 
-public final class Flag extends Piece {
+public final class PBomb extends Piece {
 
     // Constants
-    public static final int AMOUNT = 1;
+    public static final int AMOUNT = 6;
 
     // Instance Variables
     // protected Player player; -> protected variable from parent
 
     // Constructor
-    public Flag(Player player) {
+    public PBomb(Player player) {
         super(player);
     }
 
