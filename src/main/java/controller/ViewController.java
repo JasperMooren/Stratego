@@ -1,6 +1,7 @@
 package controller;
 
 import itvitae.strategogui.FXController;
+import javafx.scene.paint.Color;
 import model.Board;
 import model.pieces.*;
 
@@ -20,13 +21,36 @@ public class ViewController {
         System.out.println("(" + x + "," + y + ")");
     }
 
-    public void showBoard(Board board) {
+    /**
+     * Requests the model Controller to show the board based on the board found in the model.
+     */
+    public void updateBoard() {
+        modelController.showBoard();
+    }
+
+    /**
+     * Updates the board according to the board given in the parameter.
+     * @param board the board to be updated.
+     */
+    public void updateBoard(Board board) {
+        Piece p;
         String pieceName;
+        Color color;
         for (int y = 0; y < Board.Y_LENGTH; y++) {
             for (int x = 0; x < Board.X_LENGTH; x++) {
-                pieceName = pieceToString(board.getPiece(x, y));
+                p = board.getPiece(x,y);
+                pieceName = pieceToString(p);
+                if (p == null) {
+                    color = Color.BLACK;
+                }
+                else if (p.getPlayer().getIsFirst()) {
+                    color = Color.RED;
+                }
+                else {
+                    color = Color.BLUE;
+                }
                 if (pieceName != null) {
-                    fxController.setButtonText(pieceName, x, y);
+                    fxController.setButtonText(pieceName, x, y, color);
                 } else {
                     // test code, this shouldn't run -> piece is not one of the defined subclasses or null.
                     System.out.println("ERROR: invalid piece!");
@@ -76,9 +100,5 @@ public class ViewController {
             return "B";
         }
         return null;
-    }
-
-    public void showBoard() {
-        modelController.showBoard();
     }
 }

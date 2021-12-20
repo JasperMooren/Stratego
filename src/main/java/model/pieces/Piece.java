@@ -20,6 +20,7 @@ public abstract sealed class Piece
         this.player = player;
     }
 
+    // Getters
     /**
      * The amount of pieces that every player has.
      * This should be static, but Java cannot accept static abstract methods, nor abstract constants.
@@ -51,5 +52,9 @@ public abstract sealed class Piece
             total += getAmount(cls);
         }
         return total;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }

@@ -24,7 +24,7 @@ public class ModelController {
         if (!currentPlayer.getIsFirst()) {
             board = board.getFlippedBoard();
         }
-        viewController.showBoard(board);
+        viewController.updateBoard(board);
     }
 
 }
