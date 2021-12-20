@@ -30,6 +30,7 @@ public class ViewController {
 
     /**
      * Updates the board according to the board given in the parameter.
+     *
      * @param board the board to be updated.
      */
     public void updateBoard(Board board) {
@@ -38,15 +39,13 @@ public class ViewController {
         Color color;
         for (int y = 0; y < Board.Y_LENGTH; y++) {
             for (int x = 0; x < Board.X_LENGTH; x++) {
-                p = board.getPiece(x,y);
+                p = board.getPiece(x, y);
                 pieceName = pieceToString(p);
                 if (p == null) {
                     color = Color.BLACK;
-                }
-                else if (p.getPlayer().getIsFirst()) {
-                    color = Color.rgb(160,0,0);
-                }
-                else {
+                } else if (p.getPlayer().getIsFirst()) {
+                    color = Color.rgb(160, 0, 0);
+                } else {
                     color = Color.BLUE;
                 }
                 if (pieceName != null) {

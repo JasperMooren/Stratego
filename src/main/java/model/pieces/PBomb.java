@@ -2,10 +2,12 @@ package model.pieces;
 
 import model.Player;
 
-public final class PBomb extends Piece {
+public class PBomb extends Piece {
 
     // Constants
     public static final int AMOUNT = 6;
+    public static final int VALUE = 0;
+    public static final PieceType PIECE_TYPE = PieceType.P_BOMB;
 
     // Instance Variables
     // protected Player player; -> protected variable from parent
@@ -16,7 +18,7 @@ public final class PBomb extends Piece {
     }
 
     @Override
-    public int getAmount() {
-        return AMOUNT;
+    public PieceType getPieceType() {
+        return PIECE_TYPE;
     }
 }
