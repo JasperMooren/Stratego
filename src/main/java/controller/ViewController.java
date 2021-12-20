@@ -44,7 +44,7 @@ public class ViewController {
                     color = Color.BLACK;
                 }
                 else if (p.getPlayer().getIsFirst()) {
-                    color = Color.RED;
+                    color = Color.rgb(160,0,0);
                 }
                 else {
                     color = Color.BLUE;
