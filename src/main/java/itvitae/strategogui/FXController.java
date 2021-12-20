@@ -4,7 +4,12 @@ import controller.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
+
+import java.io.File;
+
 
 public class FXController {
 
@@ -109,7 +114,24 @@ public class FXController {
     @FXML private Button button10;
     @FXML private Button button00;
 
+    @FXML
+    private GridPane gridPane;
 
+    // Constants
+    public static final int X_SIZE = 10;
+    public static final int Y_SIZE = 10;
+
+    private static final Background BACKGROUND = getBackground();
+
+    private static Background getBackground() {
+        // get the absolute path to the background image
+        String backgroundPath =
+                new File("src/main/resources/images/Stratego_better 800x800.jpg").toURI().toString();
+        BackgroundImage backgroundImage = new BackgroundImage(new Image(backgroundPath),
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT);
+        return new Background(backgroundImage);
+    }
 
 
     // Instance Variables
@@ -120,8 +142,15 @@ public class FXController {
         viewController = new ViewController(this);
     }
 
-    public void initialise() {
-
+    @FXML
+    public void initialize() {
+        for (int y = 0; y < Y_SIZE; y++) {
+            for (int x = 0; x < X_SIZE; x++) {
+                getButton(x,y).setOpacity(0);
+            }
+        }
+        gridPane.setBackground(BACKGROUND);
+        gridPane.setGridLinesVisible(false);
     }
 
 

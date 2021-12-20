@@ -9,7 +9,7 @@ public abstract sealed class Piece
      * A list of all subclasses of Piece
      */
     @SuppressWarnings("unchecked") // All subclasses of Piece by definition extend Piece.
-    public static final Class<? extends Piece>[] PIECE_CLASS_LIST =
+    public static final Class<? extends Piece>[] PIECE_SUBCLASS_LIST =
             (Class<? extends Piece>[]) Piece.class.getPermittedSubclasses();
 
     // Instance Variable
@@ -47,7 +47,7 @@ public abstract sealed class Piece
 
     public static int getTotalAmount() {
         int total = 0;
-        for (Class<? extends Piece> cls : PIECE_CLASS_LIST) {
+        for (Class<? extends Piece> cls : PIECE_SUBCLASS_LIST) {
             total += getAmount(cls);
         }
         return total;
