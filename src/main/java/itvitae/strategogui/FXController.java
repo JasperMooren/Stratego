@@ -1,12 +1,15 @@
 package itvitae.strategogui;
 
 import controller.ViewController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
 import java.io.File;
+
 
 public class FXController {
 
@@ -129,6 +132,7 @@ public class FXController {
                 BackgroundSize.DEFAULT);
         return new Background(backgroundImage);
     }
+
 
     // Instance Variables
     private final ViewController viewController;
