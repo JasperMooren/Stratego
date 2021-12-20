@@ -1,134 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="itvitae.strategogui.FXController">
-    <GridPane fx:id="gridPane" gridLinesVisible="true" pickOnBounds="false" prefHeight="800.0" prefWidth="800.0" VBox.vgrow="NEVER">
-
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-        <Button fx:id="button99" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton99Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="0" />
-        <Button fx:id="button89" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton89Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="0" />
-        <Button fx:id="button79" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton79Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="7" GridPane.rowIndex="0" />
-        <Button fx:id="button69" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton69Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="6" GridPane.rowIndex="0" />
-        <Button fx:id="button59" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton59Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="0" />
-        <Button fx:id="button49" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton49Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="0" />
-        <Button fx:id="button39" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton39Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="3" GridPane.rowIndex="0" />
-        <Button fx:id="button29" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton29Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-        <Button fx:id="button19" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton19Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-        <Button fx:id="button09" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton09Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-        <Button fx:id="button98" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton98Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="1" />
-        <Button fx:id="button88" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton88Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="1" />
-        <Button fx:id="button78" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton78Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="7" GridPane.rowIndex="1" />
-        <Button fx:id="button68" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton68Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-        <Button fx:id="button58" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton58Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-        <Button fx:id="button48" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton48Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-        <Button fx:id="button38" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton38Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-        <Button fx:id="button28" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton28Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-        <Button fx:id="button18" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton18Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Button fx:id="button08" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton08Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <Button fx:id="button97" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton97Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="2" />
-        <Button fx:id="button87" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton87Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="2" />
-        <Button fx:id="button77" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton77Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="7" GridPane.rowIndex="2" />
-        <Button fx:id="button67" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton67Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-        <Button fx:id="button57" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton57Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-        <Button fx:id="button47" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton47Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-        <Button fx:id="button37" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton37Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-        <Button fx:id="button27" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton27Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-        <Button fx:id="button17" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton17Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <Button fx:id="button07" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton07Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-        <Button fx:id="button96" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton96Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="3" />
-        <Button fx:id="button86" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton86Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="3" />
-        <Button fx:id="button76" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton76Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="7" GridPane.rowIndex="3" />
-        <Button fx:id="button66" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton66Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-        <Button fx:id="button56" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton56Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-        <Button fx:id="button46" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton46Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-        <Button fx:id="button36" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton36Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-        <Button fx:id="button26" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton26Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-        <Button fx:id="button16" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton16Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-        <Button fx:id="button06" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton06Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-        <Button fx:id="button95" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton95Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="4" />
-        <Button fx:id="button85" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton85Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="4" />
-        <Button fx:id="button75" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton75Click" prefHeight="100.0" prefWidth="100.0" text="Lake" GridPane.columnIndex="7" GridPane.rowIndex="4" />
-        <Button fx:id="button65" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton65Click" prefHeight="100.0" prefWidth="100.0" text="Lake" GridPane.columnIndex="6" GridPane.rowIndex="4" />
-        <Button fx:id="button55" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton55Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-        <Button fx:id="button45" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton45Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-        <Button fx:id="button35" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton35Click" prefHeight="100.0" prefWidth="100.0" text="Lake" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-        <Button fx:id="button25" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton25Click" prefHeight="100.0" prefWidth="100.0" text="Lake" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-        <Button fx:id="button15" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton15Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-        <Button fx:id="button05" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton05Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-        <Button fx:id="button94" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton94Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="5" />
-        <Button fx:id="button84" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton84Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="5" />
-        <Button fx:id="button74" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton74Click" prefHeight="100.0" prefWidth="100.0" text="Lake" GridPane.columnIndex="7" GridPane.rowIndex="5" />
-        <Button fx:id="button64" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton64Click" prefHeight="100.0" prefWidth="100.0" text="Lake" GridPane.columnIndex="6" GridPane.rowIndex="5" />
-        <Button fx:id="button54" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton54Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-        <Button fx:id="button44" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton44Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-        <Button fx:id="button34" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton34Click" prefHeight="100.0" prefWidth="100.0" text="Lake" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-        <Button fx:id="button24" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton24Click" prefHeight="100.0" prefWidth="100.0" text="Lake" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-        <Button fx:id="button14" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton14Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-        <Button fx:id="button04" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton04Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-        <Button fx:id="button93" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton93Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="6" />
-        <Button fx:id="button83" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton83Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="6" />
-        <Button fx:id="button73" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton73Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="7" GridPane.rowIndex="6" />
-        <Button fx:id="button63" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton63Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="6" GridPane.rowIndex="6" />
-        <Button fx:id="button53" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton53Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="6" />
-        <Button fx:id="button43" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton43Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-        <Button fx:id="button33" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton33Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-        <Button fx:id="button23" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton23Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-        <Button fx:id="button13" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton13Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-        <Button fx:id="button03" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton03Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-        <Button fx:id="button92" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton92Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="7" />
-        <Button fx:id="button82" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton82Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="7" />
-        <Button fx:id="button72" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton72Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="7" GridPane.rowIndex="7" />
-        <Button fx:id="button62" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton62Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="6" GridPane.rowIndex="7" />
-        <Button fx:id="button52" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton52Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="7" />
-        <Button fx:id="button42" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton42Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="7" />
-        <Button fx:id="button32" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton32Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-        <Button fx:id="button22" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton22Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-        <Button fx:id="button12" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton12Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-        <Button fx:id="button02" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton02Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="7" />
-        <Button fx:id="button91" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton91Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="8" />
-        <Button fx:id="button81" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton81Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="8" />
-        <Button fx:id="button71" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton71Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="7" GridPane.rowIndex="8" />
-        <Button fx:id="button61" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton61Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="6" GridPane.rowIndex="8" />
-        <Button fx:id="button51" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton51Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="8" />
-        <Button fx:id="button41" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton41Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="8" />
-        <Button fx:id="button31" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton31Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-        <Button fx:id="button21" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton21Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-        <Button fx:id="button11" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton11Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-        <Button fx:id="button01" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton01Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="8" />
-        <Button fx:id="button90" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton90Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="9" />
-        <Button fx:id="button80" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton80Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="9" />
-        <Button fx:id="button70" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton70Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="7" GridPane.rowIndex="9" />
-        <Button fx:id="button60" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton60Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="6" GridPane.rowIndex="9" />
-        <Button fx:id="button50" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton50Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="9" />
-        <Button fx:id="button40" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton40Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="9" />
-        <Button fx:id="button30" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton30Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="3" GridPane.rowIndex="9" />
-        <Button fx:id="button20" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton20Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-        <Button fx:id="button10" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton10Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-        <Button fx:id="button00" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton00Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="9" />
-    </GridPane>
+<VBox alignment="CENTER" prefHeight="814.0" prefWidth="1164.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="itvitae.strategogui.FXController">
+   <SplitPane dividerPositions="0.7600422832980972" VBox.vgrow="NEVER">
+      <items>
+          <GridPane fx:id="gridPane" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="800.0" prefWidth="800.0">
+      
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+              <Button fx:id="button99" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton99Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="0" />
+              <Button fx:id="button89" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton89Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="0" />
+              <Button fx:id="button79" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton79Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="7" GridPane.rowIndex="0" />
+              <Button fx:id="button69" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton69Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="6" GridPane.rowIndex="0" />
+              <Button fx:id="button59" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton59Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+              <Button fx:id="button49" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton49Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+              <Button fx:id="button39" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton39Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+              <Button fx:id="button29" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton29Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+              <Button fx:id="button19" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton19Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+              <Button fx:id="button09" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton09Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+              <Button fx:id="button98" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton98Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="1" />
+              <Button fx:id="button88" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton88Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+              <Button fx:id="button78" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton78Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+              <Button fx:id="button68" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton68Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+              <Button fx:id="button58" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton58Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+              <Button fx:id="button48" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton48Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+              <Button fx:id="button38" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton38Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+              <Button fx:id="button28" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton28Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+              <Button fx:id="button18" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton18Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+              <Button fx:id="button08" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton08Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+              <Button fx:id="button97" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton97Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="2" />
+              <Button fx:id="button87" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton87Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+              <Button fx:id="button77" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton77Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+              <Button fx:id="button67" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton67Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+              <Button fx:id="button57" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton57Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+              <Button fx:id="button47" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton47Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+              <Button fx:id="button37" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton37Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+              <Button fx:id="button27" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton27Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+              <Button fx:id="button17" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton17Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+              <Button fx:id="button07" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton07Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+              <Button fx:id="button96" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton96Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="3" />
+              <Button fx:id="button86" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton86Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+              <Button fx:id="button76" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton76Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+              <Button fx:id="button66" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton66Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+              <Button fx:id="button56" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton56Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+              <Button fx:id="button46" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton46Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+              <Button fx:id="button36" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton36Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+              <Button fx:id="button26" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton26Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+              <Button fx:id="button16" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton16Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+              <Button fx:id="button06" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton06Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+              <Button fx:id="button95" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton95Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="4" />
+              <Button fx:id="button85" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton85Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+              <Button fx:id="button75" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton75Click" prefHeight="100.0" prefWidth="100.0" text="Lake" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+              <Button fx:id="button65" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton65Click" prefHeight="100.0" prefWidth="100.0" text="Lake" GridPane.columnIndex="6" GridPane.rowIndex="4">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding></Button>
+              <Button fx:id="button55" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton55Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+              <Button fx:id="button45" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton45Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+              <Button fx:id="button35" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton35Click" prefHeight="100.0" prefWidth="100.0" text="Lake" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+              <Button fx:id="button25" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton25Click" prefHeight="100.0" prefWidth="100.0" text="Lake" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+              <Button fx:id="button15" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton15Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+              <Button fx:id="button05" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton05Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+              <Button fx:id="button94" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton94Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="5" />
+              <Button fx:id="button84" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton84Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+              <Button fx:id="button74" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton74Click" prefHeight="100.0" prefWidth="100.0" text="Lake" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+              <Button fx:id="button64" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton64Click" prefHeight="100.0" prefWidth="100.0" text="Lake" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+              <Button fx:id="button54" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton54Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+              <Button fx:id="button44" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton44Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+              <Button fx:id="button34" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton34Click" prefHeight="100.0" prefWidth="100.0" text="Lake" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+              <Button fx:id="button24" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton24Click" prefHeight="100.0" prefWidth="100.0" text="Lake" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+              <Button fx:id="button14" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton14Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+              <Button fx:id="button04" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton04Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+              <Button fx:id="button93" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton93Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="6" />
+              <Button fx:id="button83" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton83Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+              <Button fx:id="button73" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton73Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+              <Button fx:id="button63" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton63Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+              <Button fx:id="button53" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton53Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+              <Button fx:id="button43" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton43Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+              <Button fx:id="button33" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton33Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+              <Button fx:id="button23" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton23Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+              <Button fx:id="button13" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton13Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+              <Button fx:id="button03" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton03Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+              <Button fx:id="button92" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton92Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="7" />
+              <Button fx:id="button82" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton82Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="7" />
+              <Button fx:id="button72" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton72Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="7" GridPane.rowIndex="7" />
+              <Button fx:id="button62" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton62Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+              <Button fx:id="button52" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton52Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+              <Button fx:id="button42" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton42Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+              <Button fx:id="button32" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton32Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+              <Button fx:id="button22" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton22Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+              <Button fx:id="button12" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton12Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+              <Button fx:id="button02" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton02Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+              <Button fx:id="button91" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton91Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="8" />
+              <Button fx:id="button81" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton81Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="8" />
+              <Button fx:id="button71" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton71Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="7" GridPane.rowIndex="8" />
+              <Button fx:id="button61" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton61Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="6" GridPane.rowIndex="8" />
+              <Button fx:id="button51" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton51Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+              <Button fx:id="button41" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton41Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+              <Button fx:id="button31" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton31Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+              <Button fx:id="button21" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton21Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+              <Button fx:id="button11" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton11Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+              <Button fx:id="button01" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton01Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+              <Button fx:id="button90" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton90Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="9" GridPane.rowIndex="9" />
+              <Button fx:id="button80" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton80Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="8" GridPane.rowIndex="9" />
+              <Button fx:id="button70" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton70Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="7" GridPane.rowIndex="9" />
+              <Button fx:id="button60" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton60Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="6" GridPane.rowIndex="9" />
+              <Button fx:id="button50" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton50Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="5" GridPane.rowIndex="9" />
+              <Button fx:id="button40" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton40Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+              <Button fx:id="button30" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton30Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+              <Button fx:id="button20" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton20Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+              <Button fx:id="button10" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton10Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+              <Button fx:id="button00" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButton00Click" prefHeight="100.0" prefWidth="100.0" text="Land" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+          </GridPane>
+         <SplitPane dividerPositions="0.5, 0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+           <items>
+             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="247.0" prefWidth="376.0">
+                  <children>
+                     <GridPane fx:id="gridPaneP2" alignment="BOTTOM_RIGHT" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="320.0">
+                        <columnConstraints>
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                     </GridPane>
+                  </children></AnchorPane>
+               <DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="303.0" prefWidth="350.0">
+                   <header>
+                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="475.0" />
+                   </header>
+                   <content>
+                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                   </content>
+                   <expandableContent>
+                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+                   </expandableContent>
+               </DialogPane>
+             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                  <children>
+                     <GridPane fx:id="gridPaneP1" alignment="BOTTOM_RIGHT" gridLinesVisible="true" layoutX="6.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="320.0">
+                       <columnConstraints>
+                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                       </columnConstraints>
+                       <rowConstraints>
+                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                       </rowConstraints>
+                     </GridPane>
+                  </children>
+               </AnchorPane>
+           </items>
+         </SplitPane>
+      </items>
+   </SplitPane>
 </VBox>
