@@ -1,8 +1,10 @@
 package itvitae.strategogui;
 
 import controller.ViewController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -12,6 +14,7 @@ import javafx.scene.text.FontWeight;
 
 import java.io.File;
 import java.security.InvalidParameterException;
+
 
 public class FXController {
 
@@ -134,6 +137,7 @@ public class FXController {
                 BackgroundSize.DEFAULT);
         return new Background(backgroundImage);
     }
+
 
     // Instance Variables
     private final ViewController viewController;
