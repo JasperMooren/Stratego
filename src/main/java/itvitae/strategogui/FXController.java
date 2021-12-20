@@ -1,14 +1,17 @@
 package itvitae.strategogui;
 
 import controller.ViewController;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 import java.io.File;
+import java.security.InvalidParameterException;
 
 
 public class FXController {
@@ -146,11 +149,17 @@ public class FXController {
     public void initialize() {
         for (int y = 0; y < Y_SIZE; y++) {
             for (int x = 0; x < X_SIZE; x++) {
-                getButton(x,y).setOpacity(0);
+                initializeButton(getButton(x, y));
             }
         }
         gridPane.setBackground(BACKGROUND);
         gridPane.setGridLinesVisible(false);
+        viewController.updateBoard();
+    }
+
+    private void initializeButton(Button button) {
+        button.setStyle("-fx-background-color:transparent;");
+        button.setFont(Font.font(null, FontWeight.BOLD, 28));
     }
 
 
@@ -357,5 +366,22 @@ public class FXController {
         if (x == 1 && y == 0) {return button10;}
         if (x == 0 && y == 0) {return button00;}
         return null;
+    }
+
+    /**
+     * sets the text of a button to the designated value.
+     *
+     * @param text the String to be set
+     * @param x    the x value between 0 and X_SIZE
+     * @param y    the y value between 0 and Y_SIZE
+     */
+    public void setButtonText(String text, int x, int y, Color color) {
+        if (x < 0 || x >= X_SIZE || y < 0 || y >= Y_SIZE || text == null) {
+            throw new InvalidParameterException();
+        }
+        System.out.println("x: " + x + ", y: " + y + ", text: " + text);
+        Button b = getButton(x, y);
+        b.setText(text); // for valid inputs this shouldn't be null.
+        b.setTextFill(color);
     }
 }

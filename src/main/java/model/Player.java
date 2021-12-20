@@ -27,22 +27,7 @@ public class Player {
         setBoard(basicBoardSetup);
     }
 
-    // test method
-    @Deprecated
-    private void printPieces() {
-        String playerName;
-        if (isFirst) {
-            playerName = "Player 1";
-        }
-        else {
-            playerName = "Player 2";
-        }
-        System.out.println(playerName + " pieces:");
-        for (Piece p :
-                pieces) {
-            System.out.println(p.getClass().getName());
-        }
-    }
+    // Factories
 
     /**
      * Factory for the pieces to be constructed, based on the AMOUNT static variable in the subclass of Piece.
@@ -63,6 +48,8 @@ public class Player {
         }
         return pieces;
     }
+
+    // Setters
 
     /**
      * Sets the whole board according to a basic setup defined in the setBoard method.
@@ -111,10 +98,17 @@ public class Player {
         return true;
     }
 
+    // Getters
+
+    public boolean getIsFirst() {
+        return isFirst;
+    }
+
     /**
      * refills the pieces ArrayList and empties the board, based on incorrect changes to both
-     * @param maxX the x position at which the error occurred
-     * @param maxY the y position at which the error occurred
+     *
+     * @param maxX        the x position at which the error occurred
+     * @param maxY        the y position at which the error occurred
      * @param setupPieces the format from which the player tried to add pieces.
      */
     private void reset(int maxX, int maxY, Class<? extends Piece>[][] setupPieces) {
@@ -194,24 +188,32 @@ public class Player {
 
     /**
      * If the player is the top player, the board positions should flip.
+     *
      * @param coordinate the original coordinate
-     * @param isX if asking for the x coordinate, is true, for y is false.
+     * @param isX        if asking for the x coordinate, is true, for y is false.
      * @return the flipped coordinate (from board coordinate to player coordinate or from player coordinate to board coordinate)
      */
     private int getFlipped(int coordinate, boolean isX) {
         if (isFirst) {
             return coordinate;
         }
-        int boardLength;
-        if (isX) {
-            boardLength = Board.X_LENGTH;
+        return Board.getFlippedCoordinate(coordinate, isX);
+    }
+
+    // test method
+    @Deprecated
+    private void printPieces() {
+        String playerName;
+        if (isFirst) {
+            playerName = "Player 1";
+        } else {
+            playerName = "Player 2";
         }
-        else {
-            boardLength = Board.Y_LENGTH;
+        System.out.println(playerName + " pieces:");
+        for (Piece p :
+                pieces) {
+            System.out.println(p.getClass().getName());
         }
-        // -1 because a board length of 10 goes from 0 to 9, so position 2 flips to 7, not 8.
-        int flipped = boardLength - coordinate - 1;
-        return flipped;
     }
 
     // Standard Openings with hard coded setups:
