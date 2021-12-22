@@ -21,4 +21,21 @@ public class P2Scout extends Piece {
     public PieceType getPieceType() {
         return PIECE_TYPE;
     }
+
+    @Override
+    protected boolean withinMoveDistance(int fromX, int fromY, int toX, int toY) {
+
+        // cannot move to the same position
+        if (fromX == toX && fromY == toY) {
+            return false;
+        }
+
+        // scouts can move any distance, as long as it is orthogonal: x remains the same or y remain the same.
+        if (fromX == toX || fromY == toY) {
+            return true;
+        }
+
+        // both x and y change, not an orthogonal movement, therefore illegal.
+        return false;
+    }
 }

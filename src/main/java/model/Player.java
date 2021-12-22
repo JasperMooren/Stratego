@@ -39,11 +39,7 @@ public class Player {
         ArrayList<Piece> pieces = new ArrayList<>();
         for (PieceType pieceType : PieceType.values()) {
             for (int i = 0; i < pieceType.getAmount(); i++) {
-                try {
-                    pieces.add(pieceType.newInstance(this));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                pieces.add(pieceType.newInstance(this));
             }
         }
         return pieces;

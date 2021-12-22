@@ -16,7 +16,6 @@ public class Board {
     // Constructor
     public Board() {
         squares = buildSquares();
-
     }
 
     // constructor methods
@@ -27,7 +26,29 @@ public class Board {
                 squares[y][x] = new Square();
             }
         }
+        // add water squares
+        if (coordinatesWithinBounds(2, 4) && coordinatesWithinBounds(3, 5)) {
+            squares[4][2].setToWater();
+            squares[4][3].setToWater();
+            squares[5][2].setToWater();
+            squares[5][3].setToWater();
+        }
+        if (coordinatesWithinBounds(6, 4) && coordinatesWithinBounds(7, 5)) {
+            squares[4][6].setToWater();
+            squares[4][7].setToWater();
+            squares[5][6].setToWater();
+            squares[5][7].setToWater();
+        }
         return squares;
+    }
+
+    // Getters
+    public Piece getPiece(int x, int y) {
+        return squares[y][x].getPiece();
+    }
+
+    public Square getSquare(int x, int y) {
+        return squares[y][x];
     }
 
     /**
@@ -47,23 +68,6 @@ public class Board {
         // -1 because a board length of 10 goes from 0 to 9, so position 2 flips to 7, not 8.
         int flipped = boardLength - coordinate - 1;
         return flipped;
-    }
-
-    public void setTestPieces(Player player) {
-        setPiece(3, 2, new PBomb(player));
-        setPiece(2, 3, new PBomb(player));
-        setPiece(4, 3, new PBomb(player));
-        setPiece(3, 3, new PFlag(player));
-        setPiece(4, 2, new P3Miner(player));
-        setPiece(5, 3, new P4Sergeant(player));
-        setPiece(6, 2, new P5Lieutenant(player));
-        setPiece(7, 3, new P6Captain(player));
-        setPiece(8, 2, new P7Major(player));
-        setPiece(9, 3, new P8Colonel(player));
-        setPiece(8, 1, new P9General(player));
-        setPiece(8, 0, new P10Marshal(player));
-        setPiece(9, 0, new P1Spy(player));
-        setPiece(3, 1, new P2Scout(player));
     }
 
     // Setters
@@ -90,8 +94,32 @@ public class Board {
         return flippedBoard;
     }
 
+    // Other methods
+
+    public boolean coordinatesWithinBounds(int x, int y) {
+        return x >= 0 && x < squares[0].length && y >= 0 && y < squares.length;
+    }
+
     // test methods
-    @Deprecated
+    @Deprecated // deprecated because it's a test method
+    public void setTestPieces(Player player) {
+        setPiece(3, 2, new PBomb(player));
+        setPiece(2, 3, new PBomb(player));
+        setPiece(4, 3, new PBomb(player));
+        setPiece(3, 3, new PFlag(player));
+        setPiece(4, 2, new P3Miner(player));
+        setPiece(5, 3, new P4Sergeant(player));
+        setPiece(6, 2, new P5Lieutenant(player));
+        setPiece(7, 3, new P6Captain(player));
+        setPiece(8, 2, new P7Major(player));
+        setPiece(9, 3, new P8Colonel(player));
+        setPiece(8, 1, new P9General(player));
+        setPiece(8, 0, new P10Marshal(player));
+        setPiece(9, 0, new P1Spy(player));
+        setPiece(3, 1, new P2Scout(player));
+    }
+
+    @Deprecated // deprecated because it's a test method
     public void printBoard() {
         String print = "";
         print += "+ 01 02 03 04 05 06 07 08 09 10\n";
@@ -148,8 +176,7 @@ public class Board {
         System.out.println(print);
     }
 
-    @Deprecated // deprecated because it's a test method,
-    // it shouldn't be used in the final program, just to check if stuff works.
+    @Deprecated // deprecated because it's a test method
     private String getSquareString(int x, int y) {
         Piece p = squares[y][x].getPiece();
         if (p == null) {
@@ -186,15 +213,5 @@ public class Board {
             return "BB";
         }
         return null;
-    }
-
-    public Piece getPiece(int x, int y) {
-        if (x >= squares[0].length) {
-            return null;
-        }
-        if (y >= squares.length) {
-            return null;
-        }
-        return squares[y][x].getPiece();
     }
 }
