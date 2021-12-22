@@ -37,4 +37,13 @@ public class PFlag extends Piece {
     public boolean canMove(Board board, int fromX, int fromY, int toX, int toY) {
         return false;
     }
+
+    /**
+     * This subclass cannot attack, therefore this shouldn't be called.
+     */
+    @Override
+    public Boolean winsAttack(Piece attackedPiece) {
+        System.out.println("Player is attacking with a Flag!");
+        throw new IllegalArgumentException();
+    }
 }

@@ -152,8 +152,17 @@ public class Player {
                 return pieces.remove(i);
             }
         }
-        // return the piece.
+        // There is no piece of this type to return.
         return null;
+    }
+
+    /**
+     * Gives a piece back to the pieces ArrayList after the piece is taken.
+     *
+     * @param removedPiece the piece that was removed from the board.
+     */
+    public void returnPiece(Piece removedPiece) {
+        pieces.add(removedPiece);
     }
 
     /**

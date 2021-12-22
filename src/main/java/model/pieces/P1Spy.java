@@ -21,4 +21,20 @@ public class P1Spy extends Piece {
     public PieceType getPieceType() {
         return PIECE_TYPE;
     }
+
+    /**
+     * Checks whether the piece that is attacking wins from the attacked piece.
+     *
+     * @param attackedPiece the piece that is attacked
+     * @return true if it wins, false if it loses, draw if equal.
+     */
+    @Override
+    public Boolean winsAttack(Piece attackedPiece) {
+        PieceType attackedPieceType = attackedPiece.getPieceType();
+        // attacking a Marshal wins with a Spy!
+        if (attackedPieceType == PieceType.P10_MARSHAL) {
+            return true;
+        }
+        return super.winsAttack(attackedPiece);
+    }
 }

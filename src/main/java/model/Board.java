@@ -100,6 +100,81 @@ public class Board {
         return x >= 0 && x < squares[0].length && y >= 0 && y < squares.length;
     }
 
+    /**
+     * Checks whether the coordinates are valid or not,
+     * whether there is a piece to move or not,
+     * and whether that piece can move.
+     *
+     * @param fromX         the original x-position of the piece.
+     * @param fromY         the original y-position of the piece.
+     * @param toX           the desired x-position of the piece.
+     * @param toY           the desired y-position of the piece.
+     * @param currentPlayer the current player's turn.
+     * @return true if the piece can move, otherwise false.
+     */
+    public boolean canMove(int fromX, int fromY, int toX, int toY, Player currentPlayer) {
+
+        // check if the coordinates are actually on the board.
+        if (!coordinatesWithinBounds(fromX, fromY)) {
+            return false;
+        }
+        if (!coordinatesWithinBounds(toX, toY)) {
+            return false;
+        }
+
+        // Set the moving piece as a variable
+        Piece p = getPiece(fromX, fromY);
+
+        // check if there is an actual piece on the square you want to move.
+        if (p == null) {
+            return false;
+        }
+
+        // check if the piece is of the player that is actually allowed to move.
+        if (p.getPlayer() != currentPlayer) {
+            return false;
+        }
+
+        // check if the piece can move
+        return p.canMove(this, fromX, fromY, toX, toY);
+    }
+
+    /**
+     * This method assumes the move is valid!
+     * <p>
+     * Moves a piece from the old to the new position in a way that assumes no attack.
+     *
+     * @param fromX the original x-position of the piece.
+     * @param fromY the original y-position of the piece.
+     * @param toX   the x-position the piece moves towards.
+     * @param toY   the y-position of the piece moves towards.
+     */
+    public void move(int fromX, int fromY, int toX, int toY) {
+        Piece p = getPiece(fromX, fromY);
+        setPiece(fromX, fromY, null);
+        setPiece(toX, toY, p);
+    }
+
+    public void take(int fromX, int fromY, int toX, int toY) {
+        Piece movingPiece = getPiece(fromX, fromY);
+        Piece takenPiece = getPiece(toX, toY);
+        setPiece(fromX, fromY, null);
+        setPiece(toX, toY, movingPiece);
+        takenPiece.getPlayer().returnPiece(takenPiece);
+    }
+
+    /**
+     * The player which owns the piece on position (x,y) gets their piece back, and it is removed from the board.
+     *
+     * @param x the x-coordinate of the piece
+     * @param y the y-coordinate of the piece
+     */
+    public void lose(int x, int y) {
+        Piece p = getPiece(x, y);
+        setPiece(x, y, null);
+        p.getPlayer().returnPiece(p);
+    }
+
     // test methods
     @Deprecated // deprecated because it's a test method
     public void setTestPieces(Player player) {
