@@ -9,6 +9,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import model.pieces.PieceType;
 
 import java.io.File;
 import java.security.InvalidParameterException;
@@ -289,30 +290,31 @@ public class FXController {
     public void onButton10Click() {viewController.buttonClicked(1,0);}
     public void onButton00Click() {viewController.buttonClicked(0,0);}
 
-    public void onButton0P1Click() {viewController.buttonClicked(10,1);}
-    public void onButton0P2Click() {viewController.buttonClicked(10,2);}
-    public void onButton0P3Click() {viewController.buttonClicked(10,3);}
-    public void onButton0P4Click() {viewController.buttonClicked(10,4);}
-    public void onButton0P5Click() {viewController.buttonClicked(10,5);}
-    public void onButton0P6Click() {viewController.buttonClicked(10,6);}
-    public void onButton0P7Click() {viewController.buttonClicked(10,7);}
-    public void onButton0P8Click() {viewController.buttonClicked(10,8);}
-    public void onButton0P9Click() {viewController.buttonClicked(10,9);}
-    public void onButton0P0Click() {viewController.buttonClicked(10,0);}
-    public void onButton0PBClick() {viewController.buttonClicked(10,10);}
-    public void onButton0PFClick() {viewController.buttonClicked(10,11);}
-    public void onButton1P1Click() {viewController.buttonClicked(11,1);}
-    public void onButton1P2Click() {viewController.buttonClicked(11,2);}
-    public void onButton1P3Click() {viewController.buttonClicked(11,3);}
-    public void onButton1P4Click() {viewController.buttonClicked(11,4);}
-    public void onButton1P5Click() {viewController.buttonClicked(11,5);}
-    public void onButton1P6Click() {viewController.buttonClicked(11,6);}
-    public void onButton1P7Click() {viewController.buttonClicked(11,7);}
-    public void onButton1P8Click() {viewController.buttonClicked(11,8);}
-    public void onButton1P9Click() {viewController.buttonClicked(11,9);}
-    public void onButton1P0Click() {viewController.buttonClicked(11,0);}
-    public void onButton1PBClick() {viewController.buttonClicked(11,10);}
-    public void onButton1PFClick() {viewController.buttonClicked(11,11);}
+
+    public void onButton0P1Click() {viewController.buttonClicked(true,PieceType.P1_SPY);}
+    public void onButton0P2Click() {viewController.buttonClicked(true,PieceType.P2_SCOUT);}
+    public void onButton0P3Click() {viewController.buttonClicked(true,PieceType.P3_MINER);}
+    public void onButton0P4Click() {viewController.buttonClicked(true,PieceType.P4_SERGEANT);}
+    public void onButton0P5Click() {viewController.buttonClicked(true,PieceType.P5_LIEUTENANT);}
+    public void onButton0P6Click() {viewController.buttonClicked(true,PieceType.P6_CAPTAIN);}
+    public void onButton0P7Click() {viewController.buttonClicked(true,PieceType.P7_MAJOR);}
+    public void onButton0P8Click() {viewController.buttonClicked(true,PieceType.P8_COLONEL);}
+    public void onButton0P9Click() {viewController.buttonClicked(true,PieceType.P9_GENERAL);}
+    public void onButton0P0Click() {viewController.buttonClicked(true,PieceType.P10_MARSHAL);}
+    public void onButton0PBClick() {viewController.buttonClicked(true,PieceType.P_BOMB);}
+    public void onButton0PFClick() {viewController.buttonClicked(false,PieceType.P_FLAG);}
+    public void onButton1P1Click() {viewController.buttonClicked(false,PieceType.P1_SPY);}
+    public void onButton1P2Click() {viewController.buttonClicked(false,PieceType.P2_SCOUT);}
+    public void onButton1P3Click() {viewController.buttonClicked(false,PieceType.P3_MINER);}
+    public void onButton1P4Click() {viewController.buttonClicked(false,PieceType.P4_SERGEANT);}
+    public void onButton1P5Click() {viewController.buttonClicked(false,PieceType.P5_LIEUTENANT);}
+    public void onButton1P6Click() {viewController.buttonClicked(false,PieceType.P6_CAPTAIN);}
+    public void onButton1P7Click() {viewController.buttonClicked(false,PieceType.P7_MAJOR);}
+    public void onButton1P8Click() {viewController.buttonClicked(false,PieceType.P8_COLONEL);}
+    public void onButton1P9Click() {viewController.buttonClicked(false,PieceType.P9_GENERAL);}
+    public void onButton1P0Click() {viewController.buttonClicked(false,PieceType.P10_MARSHAL);}
+    public void onButton1PBClick() {viewController.buttonClicked(false,PieceType.P_BOMB);}
+    public void onButton1PFClick() {viewController.buttonClicked(false,PieceType.P_FLAG);}
 
     private Button getButton(int x, int y) {
         if (x == 9 && y == 9) {return button99;}
@@ -415,33 +417,35 @@ public class FXController {
         if (x == 2 && y == 0) {return button20;}
         if (x == 1 && y == 0) {return button10;}
         if (x == 0 && y == 0) {return button00;}
-
-        if (x == 10 && y == 1) {return button0P1;}
-        if (x == 10 && y == 2) {return button0P2;}
-        if (x == 10 && y == 3) {return button0P3;}
-        if (x == 10 && y == 4) {return button0P4;}
-        if (x == 10 && y == 5) {return button0P5;}
-        if (x == 10 && y == 6) {return button0P6;}
-        if (x == 10 && y == 7) {return button0P7;}
-        if (x == 10 && y == 8) {return button0P8;}
-        if (x == 10 && y == 9) {return button0P9;}
-        if (x == 10 && y == 0) {return button0P0;}
-        if (x == 10 && y == 10) {return button0PB;}
-        if (x == 10 && y == 11) {return button0PF;}
-        if (x == 11 && y == 1) {return button1P1;}
-        if (x == 11 && y == 2) {return button1P2;}
-        if (x == 11 && y == 3) {return button1P3;}
-        if (x == 11 && y == 4) {return button1P4;}
-        if (x == 11 && y == 5) {return button1P5;}
-        if (x == 11 && y == 6) {return button1P6;}
-        if (x == 11 && y == 7) {return button1P7;}
-        if (x == 11 && y == 8) {return button1P8;}
-        if (x == 11 && y == 9) {return button1P9;}
-        if (x == 11 && y == 0) {return button1P0;}
-        if (x == 11 && y == 10) {return button1PB;}
-        if (x == 11 && y == 11) {return button1PF;}
         return null;
     }
+    private Button getButton(boolean isFirst, PieceType pieceType) {
+        if (isFirst == true && pieceType == PieceType.P1_SPY) {return button0P1;}
+        if (isFirst == true && pieceType == PieceType.P2_SCOUT) {return button0P2;}
+        if (isFirst == true && pieceType == PieceType.P3_MINER) {return button0P3;}
+        if (isFirst == true && pieceType == PieceType.P4_SERGEANT) {return button0P4;}
+        if (isFirst == true && pieceType == PieceType.P5_LIEUTENANT) {return button0P5;}
+        if (isFirst == true && pieceType == PieceType.P6_CAPTAIN) {return button0P6;}
+        if (isFirst == true && pieceType == PieceType.P7_MAJOR) {return button0P7;}
+        if (isFirst == true && pieceType == PieceType.P8_COLONEL) {return button0P8;}
+        if (isFirst == true && pieceType == PieceType.P9_GENERAL) {return button0P9;}
+        if (isFirst == true && pieceType == PieceType.P10_MARSHAL) {return button0P0;}
+        if (isFirst == true && pieceType == PieceType.P_BOMB) {return button0PB;}
+        if (isFirst == true && pieceType == PieceType.P_FLAG) {return button0PF;}
+        if (isFirst == false && pieceType == PieceType.P1_SPY) {return button1P1;}
+        if (isFirst == false && pieceType == PieceType.P2_SCOUT) {return button1P2;}
+        if (isFirst == false && pieceType == PieceType.P3_MINER) {return button1P3;}
+        if (isFirst == false && pieceType == PieceType.P4_SERGEANT) {return button1P4;}
+        if (isFirst == false && pieceType == PieceType.P5_LIEUTENANT) {return button1P5;}
+        if (isFirst == false && pieceType == PieceType.P6_CAPTAIN) {return button1P6;}
+        if (isFirst == false && pieceType == PieceType.P7_MAJOR) {return button1P7;}
+        if (isFirst == false && pieceType == PieceType.P8_COLONEL) {return button1P8;}
+        if (isFirst == false && pieceType == PieceType.P9_GENERAL) {return button1P9;}
+        if (isFirst == false && pieceType == PieceType.P10_MARSHAL) {return button1P0;}
+        if (isFirst == false && pieceType == PieceType.P_BOMB) {return button1PB;}
+        if (isFirst == false && pieceType == PieceType.P_FLAG) {return button1PF;}
+        return null;
+}
 
     /**
      * sets the text of a button to the designated value.
