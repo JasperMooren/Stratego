@@ -117,6 +117,31 @@ public class FXController {
     @FXML
     private GridPane gridPane;
 
+    @FXML private Button button0P1;
+    @FXML private Button button0P2;
+    @FXML private Button button0P3;
+    @FXML private Button button0P4;
+    @FXML private Button button0P5;
+    @FXML private Button button0P6;
+    @FXML private Button button0P7;
+    @FXML private Button button0P8;
+    @FXML private Button button0P9;
+    @FXML private Button button0P0;
+    @FXML private Button button0PB;
+    @FXML private Button button0PF;
+    @FXML private Button button1P1;
+    @FXML private Button button1P2;
+    @FXML private Button button1P3;
+    @FXML private Button button1P4;
+    @FXML private Button button1P5;
+    @FXML private Button button1P6;
+    @FXML private Button button1P7;
+    @FXML private Button button1P8;
+    @FXML private Button button1P9;
+    @FXML private Button button1P0;
+    @FXML private Button button1PB;
+    @FXML private Button button1PF;
+
     // Constants
     public static final int X_SIZE = 10;
     public static final int Y_SIZE = 10;
@@ -255,6 +280,31 @@ public class FXController {
     public void onButton10Click() {viewController.buttonClicked(1,0);}
     public void onButton00Click() {viewController.buttonClicked(0,0);}
 
+    public void onButton0P1Click() {viewController.buttonClicked(10,1);}
+    public void onButton0P2Click() {viewController.buttonClicked(10,2);}
+    public void onButton0P3Click() {viewController.buttonClicked(10,3);}
+    public void onButton0P4Click() {viewController.buttonClicked(10,4);}
+    public void onButton0P5Click() {viewController.buttonClicked(10,5);}
+    public void onButton0P6Click() {viewController.buttonClicked(10,6);}
+    public void onButton0P7Click() {viewController.buttonClicked(10,7);}
+    public void onButton0P8Click() {viewController.buttonClicked(10,8);}
+    public void onButton0P9Click() {viewController.buttonClicked(10,9);}
+    public void onButton0P0Click() {viewController.buttonClicked(10,0);}
+    public void onButton0PBClick() {viewController.buttonClicked(10,10);}
+    public void onButton0PFClick() {viewController.buttonClicked(10,11);}
+    public void onButton1P1Click() {viewController.buttonClicked(11,1);}
+    public void onButton1P2Click() {viewController.buttonClicked(11,2);}
+    public void onButton1P3Click() {viewController.buttonClicked(11,3);}
+    public void onButton1P4Click() {viewController.buttonClicked(11,4);}
+    public void onButton1P5Click() {viewController.buttonClicked(11,5);}
+    public void onButton1P6Click() {viewController.buttonClicked(11,6);}
+    public void onButton1P7Click() {viewController.buttonClicked(11,7);}
+    public void onButton1P8Click() {viewController.buttonClicked(11,8);}
+    public void onButton1P9Click() {viewController.buttonClicked(11,9);}
+    public void onButton1P0Click() {viewController.buttonClicked(11,0);}
+    public void onButton1PBClick() {viewController.buttonClicked(11,10);}
+    public void onButton1PFClick() {viewController.buttonClicked(11,11);}
+
     private Button getButton(int x, int y) {
         if (x == 9 && y == 9) {return button99;}
         if (x == 8 && y == 9) {return button89;}
@@ -356,6 +406,31 @@ public class FXController {
         if (x == 2 && y == 0) {return button20;}
         if (x == 1 && y == 0) {return button10;}
         if (x == 0 && y == 0) {return button00;}
+
+        if (x == 10 && y == 1) {return button0P1;}
+        if (x == 10 && y == 2) {return button0P2;}
+        if (x == 10 && y == 3) {return button0P3;}
+        if (x == 10 && y == 4) {return button0P4;}
+        if (x == 10 && y == 5) {return button0P5;}
+        if (x == 10 && y == 6) {return button0P6;}
+        if (x == 10 && y == 7) {return button0P7;}
+        if (x == 10 && y == 8) {return button0P8;}
+        if (x == 10 && y == 9) {return button0P9;}
+        if (x == 10 && y == 0) {return button0P0;}
+        if (x == 10 && y == 10) {return button0PB;}
+        if (x == 10 && y == 11) {return button0PF;}
+        if (x == 11 && y == 1) {return button1P1;}
+        if (x == 11 && y == 2) {return button1P2;}
+        if (x == 11 && y == 3) {return button1P3;}
+        if (x == 11 && y == 4) {return button1P4;}
+        if (x == 11 && y == 5) {return button1P5;}
+        if (x == 11 && y == 6) {return button1P6;}
+        if (x == 11 && y == 7) {return button1P7;}
+        if (x == 11 && y == 8) {return button1P8;}
+        if (x == 11 && y == 9) {return button1P9;}
+        if (x == 11 && y == 0) {return button1P0;}
+        if (x == 11 && y == 10) {return button1PB;}
+        if (x == 11 && y == 11) {return button1PF;}
         return null;
     }
 }
