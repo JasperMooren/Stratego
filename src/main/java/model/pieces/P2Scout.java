@@ -25,6 +25,8 @@ public class P2Scout extends Piece {
     @Override
     protected boolean withinMoveDistance(int fromX, int fromY, int toX, int toY) {
 
+        // TODO: Cannot move over pieces or water!
+
         // cannot move to the same position
         if (fromX == toX && fromY == toY) {
             return false;
