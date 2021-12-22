@@ -20,6 +20,9 @@ public class ViewController {
     public void buttonClicked(int x, int y) {
         System.out.println("(" + x + "," + y + ")");
     }
+    public void buttonClicked(boolean isFirst, PieceType pieceType) {
+        System.out.println("(" + isFirst + "," + pieceType.toString() + ")");
+    }
 
     /**
      * Requests the model Controller to show the board based on the board found in the model.
