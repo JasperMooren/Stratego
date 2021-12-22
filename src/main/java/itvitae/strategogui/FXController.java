@@ -302,7 +302,7 @@ public class FXController {
     public void onButton0P9Click() {viewController.buttonClicked(true,PieceType.P9_GENERAL);}
     public void onButton0P0Click() {viewController.buttonClicked(true,PieceType.P10_MARSHAL);}
     public void onButton0PBClick() {viewController.buttonClicked(true,PieceType.P_BOMB);}
-    public void onButton0PFClick() {viewController.buttonClicked(false,PieceType.P_FLAG);}
+    public void onButton0PFClick() {viewController.buttonClicked(true,PieceType.P_FLAG);}
     public void onButton1P1Click() {viewController.buttonClicked(false,PieceType.P1_SPY);}
     public void onButton1P2Click() {viewController.buttonClicked(false,PieceType.P2_SCOUT);}
     public void onButton1P3Click() {viewController.buttonClicked(false,PieceType.P3_MINER);}
