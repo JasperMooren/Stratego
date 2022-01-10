@@ -16,7 +16,6 @@ public class Board {
     // Constructor
     public Board() {
         squares = buildSquares();
-
     }
 
     // constructor methods
@@ -27,7 +26,29 @@ public class Board {
                 squares[y][x] = new Square();
             }
         }
+        // add water squares
+        if (X_LENGTH >=3 && Y_LENGTH >= 5) {
+            squares[4][2].setToWater();
+            squares[4][3].setToWater();
+            squares[5][2].setToWater();
+            squares[5][3].setToWater();
+        }
+        if (X_LENGTH >= 7 && Y_LENGTH >= 5) {
+            squares[4][6].setToWater();
+            squares[4][7].setToWater();
+            squares[5][6].setToWater();
+            squares[5][7].setToWater();
+        }
         return squares;
+    }
+
+    // Getters
+    public Piece getPiece(int x, int y) {
+        return squares[y][x].getPiece();
+    }
+
+    public Square getSquare(int x, int y) {
+        return squares[y][x];
     }
 
     /**
@@ -47,23 +68,6 @@ public class Board {
         // -1 because a board length of 10 goes from 0 to 9, so position 2 flips to 7, not 8.
         int flipped = boardLength - coordinate - 1;
         return flipped;
-    }
-
-    public void setTestPieces(Player player) {
-        setPiece(3, 2, new PBomb(player));
-        setPiece(2, 3, new PBomb(player));
-        setPiece(4, 3, new PBomb(player));
-        setPiece(3, 3, new PFlag(player));
-        setPiece(4, 2, new P3Miner(player));
-        setPiece(5, 3, new P4Sergeant(player));
-        setPiece(6, 2, new P5Lieutenant(player));
-        setPiece(7, 3, new P6Captain(player));
-        setPiece(8, 2, new P7Major(player));
-        setPiece(9, 3, new P8Colonel(player));
-        setPiece(8, 1, new P9General(player));
-        setPiece(8, 0, new P10Marshal(player));
-        setPiece(9, 0, new P1Spy(player));
-        setPiece(3, 1, new P2Scout(player));
     }
 
     // Setters
@@ -90,8 +94,107 @@ public class Board {
         return flippedBoard;
     }
 
+    // Other methods
+
+    public boolean coordinatesWithinBounds(int x, int y) {
+        return x >= 0 && x < squares[0].length && y >= 0 && y < squares.length;
+    }
+
+    /**
+     * Checks whether the coordinates are valid or not,
+     * whether there is a piece to move or not,
+     * and whether that piece can move.
+     *
+     * @param fromX         the original x-position of the piece.
+     * @param fromY         the original y-position of the piece.
+     * @param toX           the desired x-position of the piece.
+     * @param toY           the desired y-position of the piece.
+     * @param currentPlayer the current player's turn.
+     * @return true if the piece can move, otherwise false.
+     */
+    public boolean canMove(int fromX, int fromY, int toX, int toY, Player currentPlayer) {
+
+        // check if the coordinates are actually on the board.
+        if (!coordinatesWithinBounds(fromX, fromY)) {
+            return false;
+        }
+        if (!coordinatesWithinBounds(toX, toY)) {
+            return false;
+        }
+
+        // Set the moving piece as a variable
+        Piece p = getPiece(fromX, fromY);
+
+        // check if there is an actual piece on the square you want to move.
+        if (p == null) {
+            return false;
+        }
+
+        // check if the piece is of the player that is actually allowed to move.
+        if (p.getPlayer() != currentPlayer) {
+            return false;
+        }
+
+        // check if the piece can move
+        return p.canMove(this, fromX, fromY, toX, toY);
+    }
+
+    /**
+     * This method assumes the move is valid!
+     * <p>
+     * Moves a piece from the old to the new position in a way that assumes no attack.
+     *
+     * @param fromX the original x-position of the piece.
+     * @param fromY the original y-position of the piece.
+     * @param toX   the x-position the piece moves towards.
+     * @param toY   the y-position of the piece moves towards.
+     */
+    public void move(int fromX, int fromY, int toX, int toY) {
+        Piece p = getPiece(fromX, fromY);
+        setPiece(fromX, fromY, null);
+        setPiece(toX, toY, p);
+    }
+
+    public void take(int fromX, int fromY, int toX, int toY) {
+        Piece movingPiece = getPiece(fromX, fromY);
+        Piece takenPiece = getPiece(toX, toY);
+        setPiece(fromX, fromY, null);
+        setPiece(toX, toY, movingPiece);
+        takenPiece.getPlayer().returnPiece(takenPiece);
+    }
+
+    /**
+     * The player which owns the piece on position (x,y) gets their piece back, and it is removed from the board.
+     *
+     * @param x the x-coordinate of the piece
+     * @param y the y-coordinate of the piece
+     */
+    public void lose(int x, int y) {
+        Piece p = getPiece(x, y);
+        setPiece(x, y, null);
+        p.getPlayer().returnPiece(p);
+    }
+
     // test methods
-    @Deprecated
+    @Deprecated // deprecated because it's a test method
+    public void setTestPieces(Player player) {
+        setPiece(3, 2, new PBomb(player));
+        setPiece(2, 3, new PBomb(player));
+        setPiece(4, 3, new PBomb(player));
+        setPiece(3, 3, new PFlag(player));
+        setPiece(4, 2, new P3Miner(player));
+        setPiece(5, 3, new P4Sergeant(player));
+        setPiece(6, 2, new P5Lieutenant(player));
+        setPiece(7, 3, new P6Captain(player));
+        setPiece(8, 2, new P7Major(player));
+        setPiece(9, 3, new P8Colonel(player));
+        setPiece(8, 1, new P9General(player));
+        setPiece(8, 0, new P10Marshal(player));
+        setPiece(9, 0, new P1Spy(player));
+        setPiece(3, 1, new P2Scout(player));
+    }
+
+    @Deprecated // deprecated because it's a test method
     public void printBoard() {
         String print = "";
         print += "+ 01 02 03 04 05 06 07 08 09 10\n";
@@ -148,8 +251,7 @@ public class Board {
         System.out.println(print);
     }
 
-    @Deprecated // deprecated because it's a test method,
-    // it shouldn't be used in the final program, just to check if stuff works.
+    @Deprecated // deprecated because it's a test method
     private String getSquareString(int x, int y) {
         Piece p = squares[y][x].getPiece();
         if (p == null) {
@@ -186,15 +288,5 @@ public class Board {
             return "BB";
         }
         return null;
-    }
-
-    public Piece getPiece(int x, int y) {
-        if (x >= squares[0].length) {
-            return null;
-        }
-        if (y >= squares.length) {
-            return null;
-        }
-        return squares[y][x].getPiece();
     }
 }

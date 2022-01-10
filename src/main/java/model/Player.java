@@ -39,11 +39,7 @@ public class Player {
         ArrayList<Piece> pieces = new ArrayList<>();
         for (PieceType pieceType : PieceType.values()) {
             for (int i = 0; i < pieceType.getAmount(); i++) {
-                try {
-                    pieces.add(pieceType.newInstance(this));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                pieces.add(pieceType.newInstance(this));
             }
         }
         return pieces;
@@ -156,8 +152,17 @@ public class Player {
                 return pieces.remove(i);
             }
         }
-        // return the piece.
+        // There is no piece of this type to return.
         return null;
+    }
+
+    /**
+     * Gives a piece back to the pieces ArrayList after the piece is taken.
+     *
+     * @param removedPiece the piece that was removed from the board.
+     */
+    public void returnPiece(Piece removedPiece) {
+        pieces.add(removedPiece);
     }
 
     /**
