@@ -187,8 +187,9 @@ public class Board {
      */
     public void lose(int x, int y) {
         Piece p = getPiece(x, y);
-        setPiece(x, y, null);
+        System.out.println("piece lost: " + p.toString());
         p.getPlayer().returnPiece(p);
+        setPiece(x, y, null);
     }
 
     // test methods
