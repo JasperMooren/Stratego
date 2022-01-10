@@ -32,13 +32,52 @@ public class P2Scout extends Piece {
         if (fromX == toX && fromY == toY) {
             return false;
         }
+        // calculate distance
+        int xDistance = toX - fromX;
+        int yDistance = toY - fromY;
 
-        // scouts can move any distance, as long as it is orthogonal: x remains the same or y remain the same.
-        if (fromX == toX || fromY == toY) {
-            return true;
+        //check if either x or y movement is 0 (to prevent diagonal moves)
+        if (xDistance != 0 && yDistance != 0) {
+            return false;
         }
+        // 4 directions +x , -x , +y , -y
 
-        // both x and y change, not an orthogonal movement, therefore illegal.
-        return false;
+        if (yDistance == 0) {
+            if (xDistance > 0) {
+                for (int x = fromX; x < toX; x++) {
+                    if (movingToWaterOrPieces(board, x, toY)) {
+                        return false;
+                    }
+                }
+            } else {
+                for (int x = fromX; x > toX; x--) {
+                    if (movingToWaterOrPieces(board, x, toY)) {
+                        return false;
+                    }
+                }
+            }
+        } else {
+            if (yDistance > 0) {
+                for (int y = fromY; y < toY; y++) {
+                    if (movingToWaterOrPieces(board, toX, y)) {
+                        return false;
+
+                    }
+                }
+            } else {
+                for (int y = fromY; y > toY; y--) {
+                    if (movingToWaterOrPieces(board, toX, y)) {
+                        return false;
+
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    private boolean movingToWaterOrPieces(Board board, int x, int y) {
+        return board.getPiece(x, y) != null || board.getSquare(x, y).isWater();
+        
     }
 }
