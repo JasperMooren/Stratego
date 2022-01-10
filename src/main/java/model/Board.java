@@ -135,6 +135,22 @@ public class Board {
             return false;
         }
 
+        // check if all coordinates are within bounds.
+        // -> the Game.move method checks this already
+
+        // check if target square is not water
+        if (getSquare(toX, toY).isWater()) {
+            return false;
+        }
+
+        // check if trying to move to own piece.
+        Piece pieceTo = getPiece(toX, toY);
+        if (pieceTo != null) {
+            if (pieceTo.getPlayer() == p.getPlayer()) {
+                return false;
+            }
+        }
+
         // check if the piece can move
         return p.canMove(this, fromX, fromY, toX, toY);
     }

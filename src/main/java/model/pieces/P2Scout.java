@@ -1,5 +1,6 @@
 package model.pieces;
 
+import model.Board;
 import model.Player;
 
 public class P2Scout extends Piece {
@@ -23,7 +24,7 @@ public class P2Scout extends Piece {
     }
 
     @Override
-    protected boolean withinMoveDistance(int fromX, int fromY, int toX, int toY) {
+    public boolean canMove(Board board, int fromX, int fromY, int toX, int toY) {
 
         // TODO: Cannot move over pieces or water!
 

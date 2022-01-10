@@ -47,42 +47,6 @@ public abstract class Piece {
      * @return true if it can move (even if it is an attack), false otherwise.
      */
     public boolean canMove(Board board, int fromX, int fromY, int toX, int toY) {
-
-        // check if all coordinates are within bounds.
-        // -> the Game.move method checks this already
-
-        // check if target square is not water
-        if (board.getSquare(toX, toY).isWater()) {
-            return false;
-        }
-
-        // check if trying to move to own piece.
-        Piece pieceTo = board.getPiece(toX, toY);
-        if (pieceTo != null) {
-            if (pieceTo.getPlayer() == player) {
-                return false;
-            }
-        }
-
-        // check if piece is within distance of movement
-        if (!withinMoveDistance(fromX, fromY, toX, toY)) {
-            return false;
-        }
-
-        // everything is valid
-        return true;
-    }
-
-    /**
-     * Checks whether the distance is within 1 square orthogonally. P2Scout overrides this method.
-     *
-     * @param fromX the original x-position of the piece.
-     * @param fromY the original y-position of the piece.
-     * @param toX   the desired x-position of the piece.
-     * @param toY   the desired y-position of the piece.
-     * @return true if the distance is valid, false otherwise.
-     */
-    protected boolean withinMoveDistance(int fromX, int fromY, int toX, int toY) {
         // check if target square is not the original square
         if (fromX == toX && fromY == toY) {
             return false;
