@@ -40,7 +40,44 @@ public class P2Scout extends Piece {
         if (xDistance != 0 && yDistance != 0) {
             return false;
         }
+        // 4 directions +x , -x , +y , -y
 
+        if (yDistance == 0) {
+            if (xDistance > 0) {
+                for (int x = fromX; x < toX; x++) {
+                    if (movingToWaterOrPieces(board, x, toY)) {
+                        return false;
+                    }
+                }
+            } else {
+                for (int x = fromX; x > toX; x--) {
+                    if (movingToWaterOrPieces(board, x, toY)) {
+                        return false;
+                    }
+                }
+            }
+        } else {
+            if (yDistance > 0) {
+                for (int y = fromY; y < toY; y++) {
+                    if (movingToWaterOrPieces(board, toX, y)) {
+                        return false;
+
+                    }
+                }
+            } else {
+                for (int y = fromY; y > toY; y--) {
+                    if (movingToWaterOrPieces(board, toX, y)) {
+                        return false;
+
+                    }
+                }
+            }
+        }
         return true;
+    }
+
+    private boolean movingToWaterOrPieces(Board board, int x, int y) {
+        return board.getPiece(x, y) != null || board.getSquare(x, y).isWater();
+        
     }
 }
