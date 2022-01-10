@@ -27,13 +27,13 @@ public class Board {
             }
         }
         // add water squares
-        if (coordinatesWithinBounds(2, 4) && coordinatesWithinBounds(3, 5)) {
+        if (X_LENGTH >=3 && Y_LENGTH >= 5) {
             squares[4][2].setToWater();
             squares[4][3].setToWater();
             squares[5][2].setToWater();
             squares[5][3].setToWater();
         }
-        if (coordinatesWithinBounds(6, 4) && coordinatesWithinBounds(7, 5)) {
+        if (X_LENGTH >= 7 && Y_LENGTH >= 5) {
             squares[4][6].setToWater();
             squares[4][7].setToWater();
             squares[5][6].setToWater();
