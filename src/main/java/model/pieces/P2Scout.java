@@ -78,6 +78,6 @@ public class P2Scout extends Piece {
 
     private boolean movingToWaterOrPieces(Board board, int x, int y) {
         return board.getPiece(x, y) != null || board.getSquare(x, y).isWater();
-
+        
     }
 }
