@@ -83,8 +83,10 @@ public class ModelController {
         return true;
     }
   
-    public void showTakenPieces(){
+    public void showTakenPieces() {
         viewController.showTakenPieces(game.takenPieces());
+    }
+
     public void doTurn(int fromX, int fromY, int toX, int toY) {
         if (!game.getCurrentPlayer().getIsFirst()) {
             fromX = Board.getFlippedCoordinate(fromX, true);

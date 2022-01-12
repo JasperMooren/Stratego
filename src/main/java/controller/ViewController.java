@@ -72,7 +72,12 @@ public class ViewController {
             for (int x = 0; x < Board.X_LENGTH; x++) {
                 p = board.getPiece(x, y);
                 //TODO: fix null pointer
-                pieceName = pieceToString(p.getPieceType());
+                if (p == null) {
+                    pieceName = "";
+                }
+                else {
+                    pieceName = pieceToString(p.getPieceType());
+                }
                 if (p == null) {
                     color = BLACK;
                 } else if (p.getPlayer().getIsFirst()) {
