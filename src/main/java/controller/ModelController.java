@@ -3,10 +3,6 @@ package controller;
 import model.Board;
 import model.Game;
 import model.Player;
-import model.pieces.Piece;
-import model.pieces.PieceType;
-
-import java.util.HashMap;
 
 public class ModelController {
 
@@ -22,13 +18,23 @@ public class ModelController {
         this.game = new Game();
     }
 
-    public void showBoard() {
+    public void updateView() {
+        showBoard();
+        showTakenPieces();
+    }
+
+    private void showBoard() {
         Player currentPlayer = game.getCurrentPlayer();
         Board board = game.getBoard();
         if (!currentPlayer.getIsFirst()) {
             board = board.getFlippedBoard();
         }
         viewController.updateBoard(board);
+    }
+
+    private void showTakenPieces() {
+        boolean flippedBoard = !game.getCurrentPlayer().getIsFirst();
+        viewController.showTakenPieces(game.takenPieces(), flippedBoard);
     }
 
     /**
@@ -82,10 +88,6 @@ public class ModelController {
         game.getBoard().lose(fromX, fromY);
         return true;
     }
-  
-    public void showTakenPieces() {
-        viewController.showTakenPieces(game.takenPieces());
-    }
 
     public void doTurn(int fromX, int fromY, int toX, int toY) {
         if (!game.getCurrentPlayer().getIsFirst()) {
@@ -109,11 +111,12 @@ public class ModelController {
 
     private void endTurn() {
         game.nextTurn();
-        showBoard();
+        updateView();
     }
 
     //TODO: implement
     private void endGame() {
         System.out.println("Game ended!");
+        updateView();
     }
 }

@@ -180,7 +180,7 @@ public class FXController {
         }
         gridPane.setBackground(BACKGROUND);
         gridPane.setGridLinesVisible(false);
-        viewController.updateBoard();
+        viewController.updateView();
     }
 
     private void initializeButton(Button button) {
