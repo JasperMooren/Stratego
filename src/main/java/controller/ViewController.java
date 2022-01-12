@@ -20,7 +20,9 @@ public class ViewController {
 
     public void buttonClicked(int x, int y) {
         //TODO: remove test code
-        System.out.println("(" + x + "," + y + ")");
+
+        // System.out.println("(" + x + "," + y + ")");
+
         // TODO: add some code for if the game has started or not (now the game starts when the application is loaded)
         setCoordinate(x, y);
     }
