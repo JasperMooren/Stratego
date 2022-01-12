@@ -458,7 +458,7 @@ public class FXController {
         if (x < 0 || x >= X_SIZE || y < 0 || y >= Y_SIZE || text == null) {
             throw new InvalidParameterException();
         }
-        System.out.println("x: " + x + ", y: " + y + ", text: " + text);
+        // System.out.println("x: " + x + ", y: " + y + ", text: " + text);
         Button b = getButton(x, y);
         b.setText(text); // for valid inputs this shouldn't be null.
         b.setTextFill(color);
