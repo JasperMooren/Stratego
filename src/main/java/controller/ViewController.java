@@ -150,10 +150,7 @@ public class ViewController {
                 color = BLUE;
             }
             if (flippedBoard) {
-                System.out.println("Board is flipped!");
-                System.out.println("Preflip: " + isFirst);
                 isFirst = !isFirst;
-                System.out.println("Postflip: " + isFirst);
             }
             showTakenPieces(isFirst, takenPieces.get(player), color);
         }
