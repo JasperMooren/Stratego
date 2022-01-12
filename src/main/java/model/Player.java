@@ -194,4 +194,14 @@ public class Player {
             System.out.println(p.getClass().getName());
         }
     }
+
+    public boolean hasWon() {
+        for (Piece p :
+                pieces) {
+            if (p.getPieceType() == PieceType.P_FLAG) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
