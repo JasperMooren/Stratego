@@ -36,6 +36,11 @@ public class Game {
         return players[currentPlayerIndex];
     }
 
+    public Player getNextPlayer() {
+        int otherPlayerIndex = (currentPlayerIndex + 1) % players.length;
+        return players[otherPlayerIndex];
+    }
+
     public Board getBoard() {
         return board;
     }

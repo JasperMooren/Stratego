@@ -101,7 +101,7 @@ public class ModelController {
             return;
         }
 
-        if (game.getCurrentPlayer().hasWon()) {
+        if (game.getNextPlayer().hasLost()) {
             endGame();
         }
         else {
