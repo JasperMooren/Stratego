@@ -6,6 +6,7 @@ import model.Board;
 import model.Player;
 import model.pieces.*;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -53,13 +54,6 @@ public class ViewController {
     }
 
     /**
-     * Requests the model Controller to show the board based on the board found in the model.
-     */
-    public void updateBoard() {
-        modelController.showBoard();
-    }
-
-    /**
      * Updates the board according to the board given in the parameter.
      *
      * @param board the board to be updated.
@@ -71,7 +65,6 @@ public class ViewController {
         for (int y = 0; y < Board.Y_LENGTH; y++) {
             for (int x = 0; x < Board.X_LENGTH; x++) {
                 p = board.getPiece(x, y);
-                //TODO: fix null pointer
                 if (p == null) {
                     pieceName = "";
                 }
@@ -138,31 +131,71 @@ public class ViewController {
         return null;
     }
 
-    public void showTakenPieces(HashMap<Player, HashMap<PieceType, Integer>> takenPieces) {
+    public void showTakenPieces(HashMap<Player, HashMap<PieceType, Integer>> takenPieces, boolean flippedBoard) {
         Player[] players = takenPieces.keySet().toArray(new Player[0]);
+
         if (players.length != AMOUNT_OF_PLAYERS) {
             System.out.println("ERROR: Wrong amount of players!");
             return;
         }
+        boolean isFirst;
         for (Player player :
                 players) {
-            showTakenPieces(player.getIsFirst(), takenPieces.get(player));
+            isFirst = player.getIsFirst();
+            Color color;
+            if (isFirst) {
+                color = RED;
+            }
+            else {
+                color = BLUE;
+            }
+            if (flippedBoard) {
+                System.out.println("Board is flipped!");
+                System.out.println("Preflip: " + isFirst);
+                isFirst = !isFirst;
+                System.out.println("Postflip: " + isFirst);
+            }
+            showTakenPieces(isFirst, takenPieces.get(player), color);
         }
     }
 
-    private void showTakenPieces(boolean isFirst, HashMap<PieceType, Integer> pieceTypeAmounts) {
-        setButton(isFirst, PieceType.P1_SPY, pieceTypeAmounts.get(PieceType.P1_SPY));
+    private void showTakenPieces(boolean isFirst, HashMap<PieceType, Integer> pieceTypeAmounts, Color color) {
+        setButton(isFirst, PieceType.P1_SPY, pieceTypeAmounts.get(PieceType.P1_SPY), color);
+        setButton(isFirst, PieceType.P2_SCOUT, pieceTypeAmounts.get(PieceType.P2_SCOUT), color);
+        setButton(isFirst, PieceType.P3_MINER, pieceTypeAmounts.get(PieceType.P3_MINER), color);
+        setButton(isFirst, PieceType.P4_SERGEANT, pieceTypeAmounts.get(PieceType.P4_SERGEANT), color);
+        setButton(isFirst, PieceType.P5_LIEUTENANT, pieceTypeAmounts.get(PieceType.P5_LIEUTENANT), color);
+        setButton(isFirst, PieceType.P6_CAPTAIN, pieceTypeAmounts.get(PieceType.P6_CAPTAIN), color);
+        setButton(isFirst, PieceType.P7_MAJOR, pieceTypeAmounts.get(PieceType.P7_MAJOR), color);
+        setButton(isFirst, PieceType.P8_COLONEL, pieceTypeAmounts.get(PieceType.P8_COLONEL), color);
+        setButton(isFirst, PieceType.P9_GENERAL, pieceTypeAmounts.get(PieceType.P9_GENERAL), color);
+        setButton(isFirst, PieceType.P10_MARSHAL, pieceTypeAmounts.get(PieceType.P10_MARSHAL), color);
+        setButton(isFirst, PieceType.P_BOMB, pieceTypeAmounts.get(PieceType.P_BOMB), color);
+        setButton(isFirst, PieceType.P_FLAG, pieceTypeAmounts.get(PieceType.P_FLAG), color);
     }
 
-    private void setButton(boolean isFirst, PieceType pieceType, int amount) {
-        String buttonText = "";
-        //TODO: set string
-        Color color;
-        if (isFirst) {
-            color = RED;
-        } else {
-            color = BLUE;
+    private void setButton(boolean isFirst, PieceType pieceType, int amount, Color color) {
+        String buttonText;
+        switch (pieceType) {
+            case P1_SPY -> buttonText = "S: ";
+            case P2_SCOUT -> buttonText = "2: ";
+            case P3_MINER -> buttonText = "3: ";
+            case P4_SERGEANT -> buttonText = "4: ";
+            case P5_LIEUTENANT -> buttonText = "5: ";
+            case P6_CAPTAIN -> buttonText = "6: ";
+            case P7_MAJOR -> buttonText = "7: ";
+            case P8_COLONEL -> buttonText = "8: ";
+            case P9_GENERAL -> buttonText = "9: ";
+            case P10_MARSHAL -> buttonText = "10: ";
+            case P_BOMB -> buttonText = "B: ";
+            case P_FLAG -> buttonText = "F: ";
+            default -> throw new InvalidParameterException();
         }
+        buttonText += amount;
         fxController.setButton(isFirst, pieceType, buttonText, color);
+    }
+
+    public void updateView() {
+        modelController.updateView();
     }
 }
