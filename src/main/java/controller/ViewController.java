@@ -19,6 +19,7 @@ public class ViewController {
     // Instance Variables
     private final FXController fxController;
     private final ModelController modelController;
+    private int[] firstCoordinate;
 
     // Constructor
     public ViewController(FXController fxController) {
@@ -27,7 +28,24 @@ public class ViewController {
     }
 
     public void buttonClicked(int x, int y) {
-        System.out.println("(" + x + "," + y + ")");
+        //TODO: remove test code
+
+        // System.out.println("(" + x + "," + y + ")");
+
+        // TODO: add some code for if the game has started or not (now the game starts when the application is loaded)
+        setCoordinate(x, y);
+    }
+
+    private void setCoordinate(int x, int y) {
+        if (firstCoordinate == null) {
+            firstCoordinate = new int[]{x, y};
+            System.out.println("First coordinate: (" + x + ", " + y + ")");
+        } else {
+            System.out.println("Second coordinate: (" + x + ", " + y + ")");
+            modelController.doTurn(firstCoordinate[0], firstCoordinate[1], x, y);
+            firstCoordinate = null;
+            System.out.println("First coordinate: null");
+        }
     }
 
     public void buttonClicked(boolean isFirst, PieceType pieceType) {

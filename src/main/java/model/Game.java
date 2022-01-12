@@ -118,7 +118,9 @@ public class Game {
      */
     public Boolean wins(int fromX, int fromY, int toX, int toY) {
         Piece movingPiece = board.getPiece(fromX, fromY);
+        System.out.println("Moving piece:" + movingPiece.toString());
         Piece attackedPiece = board.getPiece(toX, toY);
+        System.out.println("Attacked piece:" + attackedPiece.toString());
         return movingPiece.winsAttack(attackedPiece);
     }
 

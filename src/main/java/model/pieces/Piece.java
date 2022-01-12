@@ -53,16 +53,21 @@ public abstract class Piece {
         }
 
         // calculate distance
-        int distance = toX - fromX;
+        int xDistance = toX - fromX;
+        int yDistance = toY - fromY;
+
+        //check if either x or y movement is 0 (to prevent diagonal moves)
+        if (xDistance != 0 && yDistance != 0) {
+            return false;
+        }
 
         // check if x is within distance 1
-        if (distance < -1 || distance > 1) {
+        if (xDistance < -1 || xDistance > 1) {
             return false;
         }
 
         // check if y is within distance 1
-        distance = toY - fromY;
-        if (distance < -1 || distance > 1) {
+        if (yDistance < -1 || yDistance > 1) {
             return false;
         }
 

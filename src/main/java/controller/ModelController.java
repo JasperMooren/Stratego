@@ -58,6 +58,12 @@ public class ModelController {
 
         // See who wins the attack
         Boolean wins = game.wins(fromX, fromY, toX, toY);
+        if (wins == null) {
+            System.out.println("wins == null");
+        }
+        else {
+            System.out.println("wins == "  + wins.toString());
+        }
 
         // a draw, both players lose their pieces
         if (wins == null) {
@@ -69,14 +75,43 @@ public class ModelController {
         // the player takes the opponent's piece
         if (wins) {
             game.take(fromX, fromY, toX, toY);
+            return true;
         }
 
         // the player loses their piece
         game.getBoard().lose(fromX, fromY);
         return true;
     }
-
+  
     public void showTakenPieces(){
         viewController.showTakenPieces(game.takenPieces());
+    public void doTurn(int fromX, int fromY, int toX, int toY) {
+        if (!game.getCurrentPlayer().getIsFirst()) {
+            fromX = Board.getFlippedCoordinate(fromX, true);
+            fromY = Board.getFlippedCoordinate(fromY, false);
+            toX = Board.getFlippedCoordinate(toX, true);
+            toY = Board.getFlippedCoordinate(toY, false);
+        }
+        // did not do a valid move, therefore didn't do a turn
+        if (!move(fromX, fromY, toX, toY)) {
+            return;
+        }
+
+        if (game.getCurrentPlayer().hasWon()) {
+            endGame();
+        }
+        else {
+            endTurn();
+        }
+    }
+
+    private void endTurn() {
+        game.nextTurn();
+        showBoard();
+    }
+
+    //TODO: implement
+    private void endGame() {
+        System.out.println("Game ended!");
     }
 }

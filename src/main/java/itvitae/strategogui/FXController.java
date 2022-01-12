@@ -420,30 +420,30 @@ public class FXController {
         return null;
     }
     private Button getButton(boolean isFirst, PieceType pieceType) {
-        if (isFirst == true && pieceType == PieceType.P1_SPY) {return button0P1;}
-        if (isFirst == true && pieceType == PieceType.P2_SCOUT) {return button0P2;}
-        if (isFirst == true && pieceType == PieceType.P3_MINER) {return button0P3;}
-        if (isFirst == true && pieceType == PieceType.P4_SERGEANT) {return button0P4;}
-        if (isFirst == true && pieceType == PieceType.P5_LIEUTENANT) {return button0P5;}
-        if (isFirst == true && pieceType == PieceType.P6_CAPTAIN) {return button0P6;}
-        if (isFirst == true && pieceType == PieceType.P7_MAJOR) {return button0P7;}
-        if (isFirst == true && pieceType == PieceType.P8_COLONEL) {return button0P8;}
-        if (isFirst == true && pieceType == PieceType.P9_GENERAL) {return button0P9;}
-        if (isFirst == true && pieceType == PieceType.P10_MARSHAL) {return button0P0;}
-        if (isFirst == true && pieceType == PieceType.P_BOMB) {return button0PB;}
-        if (isFirst == true && pieceType == PieceType.P_FLAG) {return button0PF;}
-        if (isFirst == false && pieceType == PieceType.P1_SPY) {return button1P1;}
-        if (isFirst == false && pieceType == PieceType.P2_SCOUT) {return button1P2;}
-        if (isFirst == false && pieceType == PieceType.P3_MINER) {return button1P3;}
-        if (isFirst == false && pieceType == PieceType.P4_SERGEANT) {return button1P4;}
-        if (isFirst == false && pieceType == PieceType.P5_LIEUTENANT) {return button1P5;}
-        if (isFirst == false && pieceType == PieceType.P6_CAPTAIN) {return button1P6;}
-        if (isFirst == false && pieceType == PieceType.P7_MAJOR) {return button1P7;}
-        if (isFirst == false && pieceType == PieceType.P8_COLONEL) {return button1P8;}
-        if (isFirst == false && pieceType == PieceType.P9_GENERAL) {return button1P9;}
-        if (isFirst == false && pieceType == PieceType.P10_MARSHAL) {return button1P0;}
-        if (isFirst == false && pieceType == PieceType.P_BOMB) {return button1PB;}
-        if (isFirst == false && pieceType == PieceType.P_FLAG) {return button1PF;}
+        if (isFirst && pieceType == PieceType.P1_SPY) {return button0P1;}
+        if (isFirst && pieceType == PieceType.P2_SCOUT) {return button0P2;}
+        if (isFirst && pieceType == PieceType.P3_MINER) {return button0P3;}
+        if (isFirst && pieceType == PieceType.P4_SERGEANT) {return button0P4;}
+        if (isFirst && pieceType == PieceType.P5_LIEUTENANT) {return button0P5;}
+        if (isFirst && pieceType == PieceType.P6_CAPTAIN) {return button0P6;}
+        if (isFirst && pieceType == PieceType.P7_MAJOR) {return button0P7;}
+        if (isFirst && pieceType == PieceType.P8_COLONEL) {return button0P8;}
+        if (isFirst && pieceType == PieceType.P9_GENERAL) {return button0P9;}
+        if (isFirst && pieceType == PieceType.P10_MARSHAL) {return button0P0;}
+        if (isFirst && pieceType == PieceType.P_BOMB) {return button0PB;}
+        if (isFirst && pieceType == PieceType.P_FLAG) {return button0PF;}
+        if (!isFirst && pieceType == PieceType.P1_SPY) {return button1P1;}
+        if (!isFirst && pieceType == PieceType.P2_SCOUT) {return button1P2;}
+        if (!isFirst && pieceType == PieceType.P3_MINER) {return button1P3;}
+        if (!isFirst && pieceType == PieceType.P4_SERGEANT) {return button1P4;}
+        if (!isFirst && pieceType == PieceType.P5_LIEUTENANT) {return button1P5;}
+        if (!isFirst && pieceType == PieceType.P6_CAPTAIN) {return button1P6;}
+        if (!isFirst && pieceType == PieceType.P7_MAJOR) {return button1P7;}
+        if (!isFirst && pieceType == PieceType.P8_COLONEL) {return button1P8;}
+        if (!isFirst && pieceType == PieceType.P9_GENERAL) {return button1P9;}
+        if (!isFirst && pieceType == PieceType.P10_MARSHAL) {return button1P0;}
+        if (!isFirst && pieceType == PieceType.P_BOMB) {return button1PB;}
+        if (!isFirst && pieceType == PieceType.P_FLAG) {return button1PF;}
         return null;
 }
 
@@ -458,7 +458,7 @@ public class FXController {
         if (x < 0 || x >= X_SIZE || y < 0 || y >= Y_SIZE || text == null) {
             throw new InvalidParameterException();
         }
-        System.out.println("x: " + x + ", y: " + y + ", text: " + text);
+        // System.out.println("x: " + x + ", y: " + y + ", text: " + text);
         Button b = getButton(x, y);
         b.setText(text); // for valid inputs this shouldn't be null.
         b.setTextFill(color);
