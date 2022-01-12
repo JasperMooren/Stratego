@@ -194,4 +194,15 @@ public class Player {
             System.out.println(p.getClass().getName());
         }
     }
+
+    public int getAmount(PieceType pieceType) {
+        int amount = 0;
+        for (Piece piece :
+                pieces) {
+            if (piece.getPieceType() == pieceType){
+                amount++;
+            }
+        }
+        return amount;
+    }
 }

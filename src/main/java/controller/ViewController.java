@@ -3,9 +3,18 @@ package controller;
 import itvitae.strategogui.FXController;
 import javafx.scene.paint.Color;
 import model.Board;
+import model.Player;
 import model.pieces.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class ViewController {
+
+    public static final int AMOUNT_OF_PLAYERS = 2;
+    public static final Color BLACK = Color.BLACK;
+    public static final Color BLUE = Color.BLUE;
+    public static final Color RED = Color.rgb(160, 0, 0);
 
     // Instance Variables
     private final FXController fxController;
@@ -20,6 +29,7 @@ public class ViewController {
     public void buttonClicked(int x, int y) {
         System.out.println("(" + x + "," + y + ")");
     }
+
     public void buttonClicked(boolean isFirst, PieceType pieceType) {
         System.out.println("(" + isFirst + "," + pieceType.toString() + ")");
     }
@@ -43,13 +53,14 @@ public class ViewController {
         for (int y = 0; y < Board.Y_LENGTH; y++) {
             for (int x = 0; x < Board.X_LENGTH; x++) {
                 p = board.getPiece(x, y);
-                pieceName = pieceToString(p);
+                //TODO: fix null pointer
+                pieceName = pieceToString(p.getPieceType());
                 if (p == null) {
-                    color = Color.BLACK;
+                    color = BLACK;
                 } else if (p.getPlayer().getIsFirst()) {
-                    color = Color.rgb(160, 0, 0);
+                    color = RED;
                 } else {
-                    color = Color.BLUE;
+                    color = BLUE;
                 }
                 if (pieceName != null) {
                     fxController.setButtonText(pieceName, x, y, color);
@@ -61,46 +72,74 @@ public class ViewController {
         }
     }
 
-    private String pieceToString(Piece piece) {
-        if (piece == null) {
+    private String pieceToString(PieceType pieceType) {
+        if (pieceType == null) {
             return "";
         }
-        if (piece instanceof P1Spy) {
+        if (pieceType == PieceType.P1_SPY) {
             return "S";
         }
-        if (piece instanceof P2Scout) {
+        if (pieceType == PieceType.P2_SCOUT) {
             return "2";
         }
-        if (piece instanceof P3Miner) {
+        if (pieceType == PieceType.P3_MINER) {
             return "3";
         }
-        if (piece instanceof P4Sergeant) {
+        if (pieceType == PieceType.P4_SERGEANT) {
             return "4";
         }
-        if (piece instanceof P5Lieutenant) {
+        if (pieceType == PieceType.P5_LIEUTENANT) {
             return "5";
         }
-        if (piece instanceof P6Captain) {
+        if (pieceType == PieceType.P6_CAPTAIN) {
             return "6";
         }
-        if (piece instanceof P7Major) {
+        if (pieceType == PieceType.P7_MAJOR) {
             return "7";
         }
-        if (piece instanceof P8Colonel) {
+        if (pieceType == PieceType.P8_COLONEL) {
             return "8";
         }
-        if (piece instanceof P9General) {
+        if (pieceType == PieceType.P9_GENERAL) {
             return "9";
         }
-        if (piece instanceof P10Marshal) {
+        if (pieceType == PieceType.P10_MARSHAL) {
             return "10";
         }
-        if (piece instanceof PFlag) {
+        if (pieceType == PieceType.P_FLAG) {
             return "F";
         }
-        if (piece instanceof PBomb) {
+        if (pieceType == PieceType.P_BOMB) {
             return "B";
         }
         return null;
+    }
+
+    public void showTakenPieces(HashMap<Player, HashMap<PieceType, Integer>> takenPieces) {
+        Player[] players = takenPieces.keySet().toArray(new Player[0]);
+        if (players.length != AMOUNT_OF_PLAYERS) {
+            System.out.println("ERROR: Wrong amount of players!");
+            return;
+        }
+        for (Player player :
+                players) {
+            showTakenPieces(player.getIsFirst(), takenPieces.get(player));
+        }
+    }
+
+    private void showTakenPieces(boolean isFirst, HashMap<PieceType, Integer> pieceTypeAmounts) {
+        setButton(isFirst, PieceType.P1_SPY, pieceTypeAmounts.get(PieceType.P1_SPY));
+    }
+
+    private void setButton(boolean isFirst, PieceType pieceType, int amount) {
+        String buttonText = "";
+        //TODO: set string
+        Color color;
+        if (isFirst) {
+            color = RED;
+        } else {
+            color = BLUE;
+        }
+        fxController.setButton(isFirst, pieceType, buttonText, color);
     }
 }

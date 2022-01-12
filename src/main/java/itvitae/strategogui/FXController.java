@@ -463,4 +463,10 @@ public class FXController {
         b.setText(text); // for valid inputs this shouldn't be null.
         b.setTextFill(color);
     }
+
+    public void setButton(boolean isFirst, PieceType pieceType, String buttonText, Color color) {
+        Button b = getButton(isFirst, pieceType);
+        b.setText(buttonText);
+        b.setTextFill(color);
+    }
 }
