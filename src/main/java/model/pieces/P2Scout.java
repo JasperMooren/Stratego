@@ -30,6 +30,7 @@ public class P2Scout extends Piece {
 
         // cannot move to the same position
         if (fromX == toX && fromY == toY) {
+            System.out.println("Scout same position");
             return false;
         }
         // calculate distance
@@ -38,19 +39,20 @@ public class P2Scout extends Piece {
 
         //check if either x or y movement is 0 (to prevent diagonal moves)
         if (xDistance != 0 && yDistance != 0) {
+            System.out.println("Scout can only move orthrogonal");
             return false;
         }
         // 4 directions +x , -x , +y , -y
 
         if (yDistance == 0) {
             if (xDistance > 0) {
-                for (int x = fromX; x < toX; x++) {
+                for (int x = fromX+1; x < toX; x++) {
                     if (movingToWaterOrPieces(board, x, toY)) {
                         return false;
                     }
                 }
             } else {
-                for (int x = fromX; x > toX; x--) {
+                for (int x = fromX-1; x > toX; x--) {
                     if (movingToWaterOrPieces(board, x, toY)) {
                         return false;
                     }
@@ -58,14 +60,14 @@ public class P2Scout extends Piece {
             }
         } else {
             if (yDistance > 0) {
-                for (int y = fromY; y < toY; y++) {
+                for (int y = fromY+1; y < toY; y++) {
                     if (movingToWaterOrPieces(board, toX, y)) {
                         return false;
 
                     }
                 }
             } else {
-                for (int y = fromY; y > toY; y--) {
+                for (int y = fromY-1; y > toY; y--) {
                     if (movingToWaterOrPieces(board, toX, y)) {
                         return false;
 
@@ -77,6 +79,7 @@ public class P2Scout extends Piece {
     }
 
     private boolean movingToWaterOrPieces(Board board, int x, int y) {
+        System.out.println("Scout moving over pieces or Water");
         return board.getPiece(x, y) != null || board.getSquare(x, y).isWater();
         
     }
