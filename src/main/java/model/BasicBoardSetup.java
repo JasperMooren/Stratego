@@ -129,25 +129,25 @@ public enum BasicBoardSetup {
     // Test setups
     @Deprecated
     private final PieceType[][] TEST_A_SETUP = {
-            {PieceType.P_FLAG, PieceType.P_BOMB, PieceType.P4_SERGEANT, PieceType.P_BOMB, PieceType.P6_CAPTAIN,
+            {PieceType.P1_SPY, PieceType.P_BOMB, PieceType.P4_SERGEANT, PieceType.P_BOMB, PieceType.P6_CAPTAIN,
                     PieceType.P3_MINER, PieceType.P3_MINER, PieceType.P3_MINER, PieceType.P5_LIEUTENANT, PieceType.P7_MAJOR},
             {PieceType.P_BOMB, PieceType.P4_SERGEANT, PieceType.P_BOMB, PieceType.P2_SCOUT, PieceType.P2_SCOUT,
                     PieceType.P5_LIEUTENANT, PieceType.P4_SERGEANT, PieceType.P2_SCOUT, PieceType.P6_CAPTAIN, PieceType.P6_CAPTAIN},
             {PieceType.P4_SERGEANT, PieceType.P_BOMB, PieceType.P3_MINER, PieceType.P6_CAPTAIN, PieceType.P7_MAJOR,
                     PieceType.P10_MARSHAL, PieceType.P2_SCOUT, PieceType.P2_SCOUT, PieceType.P7_MAJOR, PieceType.P2_SCOUT},
-            {PieceType.P_BOMB, PieceType.P9_GENERAL, PieceType.P1_SPY, PieceType.P8_COLONEL, PieceType.P2_SCOUT,
+            {PieceType.P_BOMB, PieceType.P9_GENERAL, PieceType.P_FLAG, PieceType.P8_COLONEL, PieceType.P2_SCOUT,
                     PieceType.P5_LIEUTENANT, PieceType.P3_MINER, PieceType.P8_COLONEL, PieceType.P2_SCOUT, PieceType.P5_LIEUTENANT}
     };
 
     @Deprecated
     private final PieceType[][] TEST_B_SETUP = {
-            {PieceType.P_FLAG, PieceType.P4_SERGEANT, PieceType.P_BOMB, PieceType.P6_CAPTAIN, PieceType.P8_COLONEL,
+            {PieceType.P5_LIEUTENANT, PieceType.P4_SERGEANT, PieceType.P_BOMB, PieceType.P6_CAPTAIN, PieceType.P8_COLONEL,
                     PieceType.P3_MINER, PieceType.P3_MINER, PieceType.P3_MINER, PieceType.P5_LIEUTENANT, PieceType.P7_MAJOR},
             {PieceType.P_BOMB, PieceType.P4_SERGEANT, PieceType.P_BOMB, PieceType.P2_SCOUT, PieceType.P2_SCOUT,
                     PieceType.P5_LIEUTENANT, PieceType.P4_SERGEANT, PieceType.P2_SCOUT, PieceType.P6_CAPTAIN, PieceType.P6_CAPTAIN},
             {PieceType.P4_SERGEANT, PieceType.P_BOMB, PieceType.P3_MINER, PieceType.P6_CAPTAIN, PieceType.P7_MAJOR,
                     PieceType.P10_MARSHAL, PieceType.P2_SCOUT, PieceType.P2_SCOUT, PieceType.P7_MAJOR, PieceType.P2_SCOUT},
             {PieceType.P_BOMB, PieceType.P9_GENERAL, PieceType.P1_SPY, PieceType.P8_COLONEL, PieceType.P2_SCOUT,
-                    PieceType.P5_LIEUTENANT, PieceType.P3_MINER, PieceType.P_BOMB, PieceType.P2_SCOUT, PieceType.P5_LIEUTENANT}
+                    PieceType.P5_LIEUTENANT, PieceType.P3_MINER, PieceType.P_BOMB, PieceType.P2_SCOUT, PieceType.P_FLAG}
     };
 }

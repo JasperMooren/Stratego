@@ -206,7 +206,7 @@ public class Player {
         return amount;
     }
 
-    public boolean hasWon() {
+    public boolean hasLost() {
         for (Piece p :
                 pieces) {
             if (p.getPieceType() == PieceType.P_FLAG) {
