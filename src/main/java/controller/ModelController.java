@@ -3,6 +3,10 @@ package controller;
 import model.Board;
 import model.Game;
 import model.Player;
+import model.pieces.Piece;
+import model.pieces.PieceType;
+
+import java.util.HashMap;
 
 public class ModelController {
 
@@ -78,7 +82,9 @@ public class ModelController {
         game.getBoard().lose(fromX, fromY);
         return true;
     }
-
+  
+    public void showTakenPieces(){
+        viewController.showTakenPieces(game.takenPieces());
     public void doTurn(int fromX, int fromY, int toX, int toY) {
         if (!game.getCurrentPlayer().getIsFirst()) {
             fromX = Board.getFlippedCoordinate(fromX, true);

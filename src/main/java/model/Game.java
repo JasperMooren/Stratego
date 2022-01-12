@@ -1,6 +1,9 @@
 package model;
 
 import model.pieces.Piece;
+import model.pieces.PieceType;
+
+import java.util.HashMap;
 
 public class Game {
 
@@ -35,6 +38,10 @@ public class Game {
 
     public Board getBoard() {
         return board;
+    }
+
+    public Player[] getPlayers() {
+        return players;
     }
 
     // Other methods
@@ -115,6 +122,25 @@ public class Game {
         Piece attackedPiece = board.getPiece(toX, toY);
         System.out.println("Attacked piece:" + attackedPiece.toString());
         return movingPiece.winsAttack(attackedPiece);
+    }
+
+    private HashMap<PieceType, Integer> takenPieces(Player player) {
+        HashMap<PieceType, Integer> pieceTypeAmounts = new HashMap<>();
+        for (PieceType pieceType :
+                PieceType.values()) {
+            int amount = player.getAmount(pieceType);
+            pieceTypeAmounts.put(pieceType, amount);
+        }
+        return pieceTypeAmounts;
+    }
+
+    public HashMap<Player, HashMap<PieceType, Integer>> takenPieces() {
+        HashMap<Player, HashMap<PieceType, Integer>> playersPiecesTaken = new HashMap<>();
+        for (Player player :
+                getPlayers()) {
+            playersPiecesTaken.put(player, takenPieces(player));
+        }
+        return playersPiecesTaken;
     }
 
     // TODO: remove test method

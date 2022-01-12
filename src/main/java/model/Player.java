@@ -195,6 +195,15 @@ public class Player {
         }
     }
 
+    public int getAmount(PieceType pieceType) {
+        int amount = 0;
+        for (Piece piece :
+                pieces) {
+            if (piece.getPieceType() == pieceType){
+                amount++;
+            }
+        }
+        return amount;
     public boolean hasWon() {
         for (Piece p :
                 pieces) {
